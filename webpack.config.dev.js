@@ -4,13 +4,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
     entry: {
         bundle: ['./client/index.js', './client/assets/stylesheets/app.scss'],
-        vender: ['react', 'react-dom']
     },
     mode: 'development',
     output: {
         path: __dirname,
-        // filename: 'bundle.js',
-        // chunkFilename: '[name].js',
         publicPath: 'http://0.0.0.0:3000/',
     },
     module: {

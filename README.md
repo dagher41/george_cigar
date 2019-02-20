@@ -8,7 +8,6 @@
 * `babel-loader`: the webpack loader that allows for the connection between webpack and babel
 * `express`: NodeJS server
 * `nodemon`: allows for automatic restarts of the nodeJS server
-* `react-hot-loader`: this is a webpack loader that allows for hot loading of react components without refreshing the page
 * `url-loader`: this package will let you import files (images, svgs, etc) the same way you would import javascript files and use them in markup. It will dump the contents of a file as a Base64 encoded string
 * `webpack-cli`: allows webpack to do it's thing from the command line
 * `webpack-dev-middleware`: express middleware that allows express to server files that are loaded into webpack's memory
@@ -18,3 +17,7 @@
 * Out of the box, babel doesn't do anything (code => code). code goes in and the same code goes out.
 * A plugin is the thing that transforms the code (code => plugin => new code). Each plugin applies a different transformation
 * A preset is a collection of plugins arranged in a particular order.
+
+### React Routing
+* The `client/index.js` file contains the `BrowserRouter` component which is used to wrap our app for client side rendering
+* Inside the `server/server.js` file we wrap our application with the `StaticRouter` so that it properly renders the page

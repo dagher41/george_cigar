@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 import AppContainer from './AppContainer';
 
-ReactDOM.render(
+ReactDOM.hydrate(
     <BrowserRouter>
         <AppContainer />
     </BrowserRouter>,

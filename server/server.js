@@ -1,5 +1,6 @@
 import Express from 'express';
 import compression from 'compression';
+import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
@@ -7,9 +8,11 @@ import AppContainer from '../client/AppContainer';
 
 const app = new Express();
 app.use(compression());
+app.use(Express.static(path.resolve(__dirname, '../dist/client')));
 
 const isDevMode = process.env.NODE_ENV === 'development' || false;
 if (isDevMode) {
+    // the following allows express to serve files located in Webpack's memory
     const webpack = require('webpack');
     const config = require('../webpack.config.dev');
     const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -30,20 +33,20 @@ app.get('/*', (req, res) => {
             <AppContainer />
         </StaticRouter>
     );
-
+    const assetsManifest = process.env.webpackAssets && JSON.parse(process.env.webpackAssets);
     res.send(
         `<html>
             <head>
-                <link rel="stylesheet" href="./bundle.css"></link>
+                <link rel="stylesheet" href="${isDevMode ? '/bundle.css' : assetsManifest['/bundle.css']}"></link>
             </head>
             <body>
-                <div id="root">${app}</div> Yo Yo
-                <script src="/vendor.js"></script>
-                <script src="/bundle.js"></script>
-            </body>
-        </html>`
+                <div id="root">${app}</div>
+                ${isDevMode ? '<script src="/vendor.js"></script>' : ''}
+            <script src="${isDevMode ? '/bundle.js' : assetsManifest['/bundle.js']}"></script>
+            </body >
+        </html > `
     );
-})
+});
 
 app.listen(3000, (error) => {
     if (!error) {
