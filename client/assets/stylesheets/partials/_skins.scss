@@ -1,3 +1,50 @@
-.red {
-    background-color: $red;
+.bg-cigars-1 {
+    background: no-repeat linear-gradient(
+        rgba(20,20,20, .5),
+        rgba(20,20,20, .5)),
+        url('../images/bg_cigars_1.jpg');
+    background-size: cover;
+}
+
+.bg-cigars-2 {
+    background: no-repeat linear-gradient(
+        rgba(20,20,20, .5),
+        rgba(20,20,20, .5)),
+        url('../images/bg_cigars_2.jpg');
+    background-size: cover;
+}
+
+.bg-vapes-1 {
+    background: no-repeat linear-gradient(
+        rgba(20,20,20, .5),
+        rgba(20,20,20, .5)),
+        url('../images/bg_vape_1.jpg');
+    background-size: cover;
+}
+
+.bg-cannabis-1 {
+    background: no-repeat linear-gradient(
+        rgba(20,20,20, .5),
+        rgba(20,20,20, .5)),
+        url('../images/bg_cannabis_1.jpg');
+    background-size: cover;
+}
+.bg-cbd-1 {
+    background: no-repeat linear-gradient(
+        rgba(20,20,20, .5),
+        rgba(20,20,20, .5)),
+        url('../images/bg_cbd_1.jpg');
+    background-size: cover;
+}
+
+.bg-gray-100 {
+    background: $gray-100;
+}
+
+.shadow-1 {
+    box-shadow: 0 10px 30px 0 rgba(0,0,0,.1);
+}
+
+.shadow-inset-1 {
+    box-shadow: inset 0px 5px 30px 0px rgba(0, 0, 0, .3)
 }

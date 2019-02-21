@@ -39,7 +39,7 @@ app.get('/*', (req, res) => {
             <head>
                 <link rel="stylesheet" href="${isDevMode ? '/bundle.css' : assetsManifest['/bundle.css']}"></link>
             </head>
-            <body>
+            <body class="container-fluid m-0 p-0">
                 <div id="root">${app}</div>
                 ${isDevMode ? '<script src="/vendor.js"></script>' : ''}
             <script src="${isDevMode ? '/bundle.js' : assetsManifest['/bundle.js']}"></script>

@@ -1,5 +1,8 @@
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+var cssnext = require('postcss-cssnext');
+var postcssFocus = require('postcss-focus');
+var postcssReporter = require('postcss-reporter');
 
 module.exports = {
     entry: {
@@ -17,7 +20,7 @@ module.exports = {
                 exclude: /node_modules/,
                 use: ['babel-loader']
             }, {
-                test: /\.(pdf|jpe?g|png|gif|svg|ico)$/,
+                test: /\.(pdf|jpe?g|png|gif|svg|ico)$/i,
                 use: [
                     {
                         loader: 'url-loader'
@@ -30,6 +33,20 @@ module.exports = {
                         loader: MiniCssExtractPlugin.loader, // <-  pulls the css into it's own file (see plugin below)
                     },
                     "css-loader", // translates CSS into CommonJS
+                    {
+                        loader: 'postcss-loader', // Run post css actions
+                        options: {
+                            plugins: () => [
+                                postcssFocus(),
+                                cssnext({
+                                    browsers: ['last 2 versions', 'IE > 10'],
+                                }),
+                                postcssReporter({
+                                    clearMessages: true,
+                                }),
+                            ],
+                        },
+                    },
                     "sass-loader"
                 ]
             }

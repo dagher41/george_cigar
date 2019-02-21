@@ -7,6 +7,7 @@ module.exports = {
     output: {
         path: __dirname + '/dist/',
         filename: 'server.bundle.js',
+        libraryTarget: 'commonjs2',
     },
     target: 'node',
     node: {
@@ -14,7 +15,7 @@ module.exports = {
         __dirname: true,
     },
     resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', '.json'],
         modules: [
             'client',
             'node_modules',
@@ -28,6 +29,14 @@ module.exports = {
                 use: {
                     loader: 'babel-loader'
                 },
+            },
+            {
+                test: /\.jpe?g$|\.gif$|\.png$|\.svg$/i,
+                use: [
+                    {
+                        loader: 'file-loader'
+                    },
+                ],
             },
         ],
     },

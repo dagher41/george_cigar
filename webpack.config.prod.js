@@ -2,6 +2,9 @@ var webpack = require('webpack');
 var ManifestPlugin = require('webpack-manifest-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+var cssnext = require('postcss-cssnext');
+var postcssFocus = require('postcss-focus');
+var postcssReporter = require('postcss-reporter');
 
 module.exports = {
     mode: 'production',
@@ -35,6 +38,20 @@ module.exports = {
                         loader: MiniCssExtractPlugin.loader, // <-  pulls the css into it's own file (see plugin below)
                     },
                     "css-loader", // translates CSS into CommonJS
+                    {
+                        loader: 'postcss-loader', // Run post css actions
+                        options: {
+                            plugins: () => [
+                                postcssFocus(),
+                                cssnext({
+                                    browsers: ['last 2 versions', 'IE > 10'],
+                                }),
+                                postcssReporter({
+                                    clearMessages: true,
+                                }),
+                            ],
+                        },
+                    },
                     "sass-loader"
                 ]
             },
@@ -43,6 +60,14 @@ module.exports = {
                 exclude: /node_modules/,
                 use: 'babel-loader',
             },
+            {
+                test: /\.(pdf|jpe?g|png|gif|svg|ico)$/i,
+                use: [
+                    {
+                        loader: 'file-loader'
+                    },
+                ]
+            }
         ],
     },
 
