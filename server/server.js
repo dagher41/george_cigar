@@ -48,9 +48,9 @@ app.get('/*', (req, res) => {
     );
 });
 
-app.listen(3000, (error) => {
+app.listen((process.env.PORT || 3000), (error) => {
     if (!error) {
-        console.log(`MERN is running on port: ${3000}! Build something amazing!`); // eslint-disable-line
+        console.log(`MERN is running on port: ${(process.env.PORT || 3000)}! Build something amazing!`); // eslint-disable-line
     } else {
         console.log('error: ', error);
     }
