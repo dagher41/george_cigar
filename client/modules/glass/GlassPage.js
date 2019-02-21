@@ -7,7 +7,7 @@ export default function () {
     return (
         <div>
             <Helmet
-                titleTemplate="%s | Cannabis"
+                titleTemplate="%s | Glass"
             />
             <div className="vwh-100 bg-cannabis-1 pt-5"></div>
             <div>

@@ -6,3 +6,18 @@
 .pull-up-50 {
     top: -55px;
 }
+
+.logo {
+    left: 1.5rem;
+    height: 150px;
+}
+
+.centered-display {
+    width: 75%;
+}
+
+@include media-breakpoint-down(sm) {
+    .centered-display {
+        width: 100%;
+    }
+}

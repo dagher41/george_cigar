@@ -23,7 +23,7 @@ module.exports = {
                 test: /\.(pdf|jpe?g|png|gif|svg|ico)$/i,
                 use: [
                     {
-                        loader: 'url-loader'
+                        loader: 'file-loader'
                     },
                 ]
             }, {

@@ -6,14 +6,14 @@ import VapesPage from './modules/vapes/VapesPage';
 import GlassPage from './modules/glass/GlassPage';
 import CBDPage from './modules/cbd/CBDPage';
 
-// import logo from './assets/images/george_cigar_logo.jpg';
+import logo from './assets/images/logo.png';
 
 export class App extends Component {
     render() {
         return (
             <div>
                 <div className="position-absolute w-100 mt-4">
-                    {/* <img src={logo}></img> */}
+                    <Link to='/' className="position-absolute logo"><img src={logo} className="logo"></img></Link>
                     <ul className="nav justify-content-center">
                         <li className="nav-item"><Link to='/' className="nav-link text-white mx-3">Home</Link></li>
                         <li className="nav-item"><Link to='/cigars' className="nav-link text-white mx-3">Cigars</Link></li>

@@ -5,14 +5,14 @@ import ProductListItem from './ProductListItem';
 class ProductList extends Component {
     render() {
         return (
-            <div className="bg-gray-100 shadow-inset-1">
-                <div className="container-fluid w-75 mx-auto pull-up-50 bg-white rounded position-relative shadow-1">
-                    <div className="row">
-                        <div className="col p-3">
+            <div className="bg-gray-100 shadow-inset-1 row">
+                <div className="col-sm-12 col-md-10 offset-md-1 mx-auto pull-up-50 bg-white rounded position-relative shadow-1">
+                    <div className="row no-gutters">
+                        <div className="col">
                             <h2>Our Products</h2>
                         </div>
                     </div>
-                    <div className="row">
+                    <div className="row no-gutters">
                         {
                             this.props.products.map(product => <ProductListItem {...product} key={product.id} />)
                         }
