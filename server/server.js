@@ -37,7 +37,8 @@ app.get('/*', (req, res) => {
     res.send(
         `<html>
             <head>
-                <link rel="stylesheet" href="${isDevMode ? '/bundle.css' : assetsManifest['/bundle.css']}"></link>
+                <link href="https://fonts.googleapis.com/css?family=Raleway:200" rel="stylesheet">
+                <link href="${isDevMode ? '/bundle.css' : assetsManifest['/bundle.css']}" rel="stylesheet"></link>
             </head>
             <body class="container-fluid m-0 p-0">
                 <div id="root">${app}</div>
