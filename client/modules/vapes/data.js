@@ -1,14 +1,14 @@
 export default [
     {
         "id": 1,
-        "title": "Smok Pens",
-        "description": "",
+        "title": "Smok Novo",
+        "description": "The Novo is a new pod system with a built in 450mah battery for long lasting battery combined with portability. ",
         "imageUrl": "https://lh3.ggpht.com/p/AF1QipNxPOrH5_E2xuGmSYnx4Z8IlDu9BFfhz4SgW7l9=s1024"
     },
     {
         "id": 2,
-        "title": "Zero Pens",
-        "description": "",
+        "title": "Renova ZERO",
+        "description": "This kit consists of two parts, one being a smooth and stylish easy grip mod made of Zinc Alloy with a built-in 650mAh rechargeable battery.",
         "imageUrl": "https://lh3.ggpht.com/p/AF1QipNFeal1pT5b-_ClQnSpPtr3ld9UpZw5FJL8f0qB=s1024"
     },
     {

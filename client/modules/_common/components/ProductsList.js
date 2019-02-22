@@ -5,7 +5,7 @@ import ProductListItem from './ProductListItem';
 class ProductList extends Component {
     render() {
         return (
-            <div className="bg-gray-100 shadow-inset-1 row">
+            <div className={`shadow-inset-1 row no-gutters ${this.props.backgroundClass}`}>
                 <div className="col-sm-12 col-md-10 offset-md-1 mx-auto pull-up-50 bg-white rounded position-relative shadow-1">
                     <div className="row no-gutters">
                         <div className="col">

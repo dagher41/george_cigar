@@ -11,7 +11,7 @@ export default function () {
             />
             <div className="vwh-100 bg-cbd-1 pt-5"></div>
             <div>
-                <ProductList products={data}></ProductList>
+                <ProductList products={data} backgroundClass="bg-cbd-tiled"></ProductList>
             </div>
         </div>
     );
