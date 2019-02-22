@@ -5,7 +5,7 @@ import logo from '../../../assets/images/logo.png';
 export default function () {
     return (
         <div>
-            <div className="position-absolute w-100 mt-4">
+            <div className="position-absolute w-100 mt-4 mb-5 z-99">
                 <Link to='/' className="position-absolute logo"><img src={logo} className="logo"></img></Link>
                 <ul className="nav justify-content-center">
                     <li className="nav-item"><NavLink exact={true} to='/' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Home</NavLink></li>

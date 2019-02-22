@@ -6,7 +6,7 @@ class ProductList extends Component {
     render() {
         return (
             <div className={`shadow-inset-1 row no-gutters ${this.props.backgroundClass}`}>
-                <div className="col-sm-12 col-md-10 offset-md-1 mx-auto pull-up-50 bg-white rounded position-relative shadow-1">
+                <div className={`col-sm-12 col-md-10 offset-md-1 mx-auto pull-up-50 bg-white rounded position-relative shadow-1 ${this.props.backgroundClass} sm`}>
                     <div className="row no-gutters">
                         <div className="col">
                             <h2>Our Products</h2>

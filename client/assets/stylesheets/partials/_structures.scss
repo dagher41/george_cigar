@@ -30,6 +30,10 @@
     bottom: 0;
 }
 
+.z-99 {
+    z-index: 99;
+}
+
 @include media-breakpoint-down(sm) {
     .centered-display {
         width: 100%;
