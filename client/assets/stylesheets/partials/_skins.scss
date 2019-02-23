@@ -1,40 +1,35 @@
-.bg-cigars-1 {
-    background: no-repeat linear-gradient(
-        rgba(20,20,20, .5),
-        rgba(20,20,20, .5)),
-        url('../images/bg_cigars_1.jpg');
+.bg-hero {
+    background-repeat: no-repeat;
     background-size: cover;
+}
+
+.bg-cigars-1 {
+    @extend .bg-hero;
+    @include gradient-bg-image('../images/bg_cigars_1.jpg')
 }
 
 .bg-cigars-2 {
-    background: no-repeat linear-gradient(
-        rgba(20,20,20, .5),
-        rgba(20,20,20, .5)),
-        url('../images/bg_cigars_2.jpg');
-    background-size: cover;
+    @extend .bg-hero;
+    @include gradient-bg-image('../images/bg_cigars_2.jpg');
 }
 
 .bg-vapes-1 {
-    background: no-repeat linear-gradient(
-        rgba(20,20,20, .5),
-        rgba(20,20,20, .5)),
-        url('../images/bg_vape_1.jpg');
-    background-size: cover;
+    @extend .bg-hero;
+    @include gradient-bg-image('../images/bg_vape_1.jpg');
 }
 
-.bg-cannabis-1 {
-    background: no-repeat linear-gradient(
-        rgba(20,20,20, .5),
-        rgba(20,20,20, .5)),
-        url('../images/bg_cannabis_1.jpg');
-    background-size: cover;
+.bg-glass-1 {
+    @extend .bg-hero;
+    background-image: url('../images/bg_glass_1.jpg');
 }
 .bg-cbd-1 {
-    background: no-repeat linear-gradient(
-        rgba(20,20,20, .5),
-        rgba(20,20,20, .5)),
-        url('../images/bg_cbd_1.jpg');
-    background-size: cover;
+    @extend .bg-hero;
+    background-image: url('../images/bg_cbd_1.jpg');
+}
+
+.bg-contact-1 {
+    @extend .bg-hero;
+    background-image: url('../images/bg_contact_1.jpg');
 }
 
 .bg-gray-100 {
@@ -81,6 +76,16 @@
 .bottom-overlay {
     background: linear-gradient(to bottom, rgba(255, 255, 255, .25) 0%, rgba(0, 0, 0, 0.69) 100%);
     color: #ffffff;
+}
+
+.quote {
+    width: 100px;
+    height: 70px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: url('../images/bg_quote.svg') 50% 50% no-repeat;
+    background-size: cover;
 }
 
 @include media-breakpoint-down(sm) {

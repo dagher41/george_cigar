@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import AppContainer from '../client/AppContainer';
+import configureStore from '../client/store';
 
 const app = new Express();
 app.use(compression());
@@ -30,7 +31,7 @@ app.get('/*', (req, res) => {
     const context = {};
     const app = ReactDOMServer.renderToString(
         <StaticRouter location={req.url} context={context}>
-            <AppContainer />
+            <AppContainer store={configureStore({})} />
         </StaticRouter>
     );
     const assetsManifest = process.env.webpackAssets && JSON.parse(process.env.webpackAssets);
