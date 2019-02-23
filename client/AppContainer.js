@@ -1,10 +1,11 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import routes from './routes';
+import { Provider } from 'react-redux';
 
-export default function AppContainer() {
+export default function AppContainer(props) {
     return (
-        <div>
+        <Provider store={props.store}>
             <Helmet
                 title="George's Cigar"
                 meta={[
@@ -20,6 +21,6 @@ export default function AppContainer() {
                 ]}
             />
             {routes}
-        </div >
+        </Provider >
     );
 }

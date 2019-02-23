@@ -6,8 +6,7 @@ import CigarsPage from './modules/cigars/CigarsPage';
 import VapesPage from './modules/vapes/VapesPage';
 import GlassPage from './modules/glass/GlassPage';
 import CBDPage from './modules/cbd/CBDPage';
-
-
+import ContactUsPage from './modules/contact-us/ContactUsPage';
 
 export class App extends Component {
     render() {
@@ -20,6 +19,7 @@ export class App extends Component {
                     <Route path="/vapes" component={VapesPage} />
                     <Route path="/glass" component={GlassPage} />
                     <Route path="/cbd" component={CBDPage} />
+                    <Route path="/contact-us" component={ContactUsPage} />
                 </Switch>
             </div>
         );
