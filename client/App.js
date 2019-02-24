@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from './modules/_common/components/Header';
+import Footer from './modules/_common/components/Footer';
 import HomePage from './modules/home/HomePage';
 import CigarsPage from './modules/cigars/CigarsPage';
 import VapesPage from './modules/vapes/VapesPage';
@@ -21,6 +22,7 @@ export class App extends Component {
                     <Route path="/cbd" component={CBDPage} />
                     <Route path="/contact-us" component={ContactUsPage} />
                 </Switch>
+                <Footer />
             </div>
         );
     }

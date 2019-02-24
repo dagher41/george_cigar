@@ -1,15 +1,20 @@
 import Express from 'express';
 import compression from 'compression';
+import bodyParser from 'body-parser';
+
 import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import AppContainer from '../client/AppContainer';
 import configureStore from '../client/store';
+import messageRoutes from './modules/messages/messages.routes';
 
 const app = new Express();
 app.use(compression());
+app.use(bodyParser.json({ limit: '20mb' }));
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
+app.use('/api', messageRoutes);
 
 const isDevMode = process.env.NODE_ENV === 'development' || false;
 if (isDevMode) {

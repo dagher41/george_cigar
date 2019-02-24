@@ -8,6 +8,10 @@ class ContactUsPage extends Component {
         this.formValidations = {};
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
+
     onEmailChange(e) {
         this.props.dispatch(emailChanged(e.target.value));
     }
@@ -44,6 +48,7 @@ class ContactUsPage extends Component {
                                     id="emailInput"
                                     aria-describedby="emailHelp"
                                     placeholder="Enter email"
+                                    value={this.props.email}
                                     onChange={e => this.onEmailChange(e)} />
                                 <small id="emailHelp"
                                     className="form-text">
@@ -58,12 +63,14 @@ class ContactUsPage extends Component {
                                     placeholder="Your message to us"
                                     rows="7"
                                     onChange={e => this.onMessageChange(e)}>
+                                    {this.props.message}
                                 </textarea>
                             </div>
                             <div className="row no-gutters mt-4 float-right">
                                 <input type="submit"
-                                    className="btn btn-outline-light"
+                                    className={`btn btn-outline-light ${this.props.messagePosting ? 'd-none' : ''}`}
                                     value="Send Message" />
+                                <div className={`spinner-border spinner-border ${this.props.messagePosting ? '' : 'd-none'}`} role="status" aria-hidden="true"></div>
                             </div>
                         </form>
                     </div>

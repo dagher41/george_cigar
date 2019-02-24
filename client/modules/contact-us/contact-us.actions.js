@@ -1,4 +1,4 @@
-import { callGoogleApi } from '../_common/util/apiCaller'
+import { callApi } from '../_common/util/apiCaller'
 export const CU_EMAIL_CHANGED = 'CU_EMAIL_CHANGED';
 export const CU_MESSAGE_CHANGED = 'CU_MESSAGE_CHANGED';
 export const CU_POST_MESSAGE = 'CU_POST_MESSAGE';
@@ -20,10 +20,17 @@ export function messageChanged(message) {
 
 export function postMessage(message) {
     return dispatch => {
-        return callGoogleApi({ body: message })
+        dispatch(initiateRequest());
+        return callApi({ body: message, method: 'post', endpoint: 'messages' })
             .then(response => {
                 return dispatch(postMessageComplete(response))
             })
+    }
+}
+
+function initiateRequest() {
+    return {
+        type: CU_POST_MESSAGE
     }
 }
 
