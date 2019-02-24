@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Helmet from 'react-helmet';
-import data from './data';
 import ProductList from '../_common/components/ProductsList';
+import ProductListBuilder from '../_common/components/ProductListBuilder';
 
 class CigarPage extends Component {
     render() {
@@ -16,11 +16,11 @@ class CigarPage extends Component {
                     </div>
                 </div>
                 <div>
-                    <ProductList products={data} backgroundClass="bg-cigars-tiled"></ProductList>
+                    <ProductList products={this.props.products || []} requestPending={this.props.requestPending} backgroundClass="bg-cigars-tiled"></ProductList>
                 </div>
-            </Fragment>
+            </Fragment >
         );
     }
 }
 
-export default CigarPage;
+export default ProductListBuilder(CigarPage, { tag: 'cigars' });

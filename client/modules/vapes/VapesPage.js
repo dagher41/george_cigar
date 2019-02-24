@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import data from './data';
 import ProductList from '../_common/components/ProductsList';
+import ProductListBuilder from '../_common/components/ProductListBuilder';
 
 class VapesPage extends Component {
     render() {
@@ -16,11 +16,11 @@ class VapesPage extends Component {
                     </div>
                 </div>
                 <div>
-                    <ProductList products={data} backgroundClass="bg-vape-tiled"></ProductList>
+                    <ProductList products={this.props.products || []} requestPending={this.props.requestPending} backgroundClass="bg-vape-tiled"></ProductList>
                 </div>
             </div>
         );
     }
 }
 
-export default VapesPage;
+export default ProductListBuilder(VapesPage, { tag: 'vapes' });

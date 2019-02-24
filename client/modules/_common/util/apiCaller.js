@@ -4,12 +4,10 @@ export function callApi({ endpoint, method = 'get', body }) {
     return axios({
         headers: { 'content-type': 'application/json' },
         method: method,
-        url: `${'/api'}/${endpoint}`,
+        url: `/api/${endpoint}`,
         data: body
     })
         .then((response) => {
-            console.log(response)
-
             return response;
         })
         .catch(
