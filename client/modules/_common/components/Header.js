@@ -1,29 +1,38 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import HamburgerNav from './HamburgerNav';
 import logo from '../../../assets/images/logo.png';
 
 export default function () {
     return (
-        <div>
-            <div className="position-absolute w-100 mt-4 mb-5 z-99">
-                <Link to='/' className="position-absolute top-left"><img src={logo} className="top-right"></img></Link>
-                <ul className="nav justify-content-center">
-                    <li className="nav-item"><NavLink exact={true} to='/' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Home</NavLink></li>
-                    <li className="nav-item"><NavLink to='/cigars' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Cigars</NavLink></li>
-                    <li className="nav-item"><NavLink to='/vapes' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Vapes</NavLink></li>
-                    <li className="nav-item"><NavLink to='/glass' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Glass</NavLink></li>
-                    <li className="nav-item"><NavLink to='/cbd' className="nav-link text-white mx-3" activeClassName="bordered-bottom">CBD</NavLink></li>
-                    <li className="nav-item"><NavLink to='/contact-us' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Contact Us</NavLink></li>
-                </ul>
-                <div className="position-absolute top-right">
-                    <p>
+        <Fragment >
+            <HamburgerNav />
+            <div className="d-flex position-absolute w-100 px-3 px-md-5 py-4 z-99">
+
+                <div className="mr-auto">
+                    <Link to='/'><img src={logo} className="logo"></img></Link>
+                </div>
+                <div>
+                    <ul className="nav justify-content-center d-none d-md-flex">
+                        <li className="nav-item"><NavLink exact={true} to='/' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Home</NavLink></li>
+                        <li className="nav-item"><NavLink to='/cigars' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Cigars</NavLink></li>
+                        <li className="nav-item"><NavLink to='/vapes' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Vapes</NavLink></li>
+                        <li className="nav-item"><NavLink to='/glass' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Glass</NavLink></li>
+                        <li className="nav-item"><NavLink to='/cbd' className="nav-link text-white mx-3" activeClassName="bordered-bottom">CBD</NavLink></li>
+                        <li className="nav-item"><NavLink to='/contact-us' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Contact Us</NavLink></li>
+                    </ul>
+                </div>
+                <div className="mx-auto mx-md-0 ml-md-auto">
+                    <div className="text-center text-md-left">
                         <a href="https://goo.gl/maps/26yv96nFMxq" target="_blank" className="text-white">
+                            <h5>George Cigar </h5>
                             804 S Anaheim Blvd Ste B<br />Anaheim&#44; CA 92805
                         </a><br />
                         <a href="tel:714-780-1195" className="text-white">&#40;714&#41;&#32;780&#45;1195</a>
-                    </p>
+                    </div>
                 </div>
-            </div>
-        </div>
+                <div className="d-md-none box-60"></div>
+            </div >
+        </Fragment>
     );
 }

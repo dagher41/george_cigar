@@ -23,6 +23,8 @@ export function postMessage(message) {
         dispatch(initiateRequest());
         return callApi({ body: message, method: 'post', endpoint: 'messages' })
             .then(response => {
+                dispatch(emailChanged(''));
+                dispatch(messageChanged(''));
                 return dispatch(postMessageComplete(response))
             })
     }

@@ -14,7 +14,9 @@ class CBDPage extends Component {
                 <Helmet
                     titleTemplate="%s | CBD"
                 />
-                <div className="vwh-100 bg-cbd-1 pt-5"></div>
+                <div className="vwh-100 bg-cbd-1 pt-5">
+
+                </div>
                 <div>
                     <ProductList products={data} backgroundClass="bg-cbd-tiled"></ProductList>
                 </div>
