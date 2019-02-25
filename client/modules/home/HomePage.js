@@ -10,8 +10,8 @@ class HomePage extends Component {
         return (
             <div>
                 <div className="vwh-100 bg-cigars-2 pt-5 row no-gutters">
-                    <div className="col-sm-10 offset-sm-1 col-md-6 offset-md-3">
-                        <h1 className="text-center text-white mt-5">Anaheim's Premier Home for Cigars, Vapes and Glass</h1>
+                    <div className="col-sm-10 offset-sm-1 col-md-6 offset-md-3 mt-150">
+                        <h1 className="text-center text-white">Anaheim's Premier Home for Cigars, Vapes and Glass</h1>
                     </div>
                 </div>
                 <div className="container-fluid p-4">

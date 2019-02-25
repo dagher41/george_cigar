@@ -1,29 +1,23 @@
 .vwh-100 {
-    width: 100vw;
-    height: 100vh;
-}
-
-.h-250 {
-    height: 250px;
+    min-width: 100vw;
+    min-height: 100vh;
 }
 
 .pull-up-50 {
     top: -55px;
 }
 
-.top-left {
-    left: 1.5rem;
-    height: 150px;
+.mt-150 {
+    margin-top: 150px;
 }
 
-.top-right {
-    top: 8px;
-    right: 1.5rem;
-    height: 150px;
+.box-60 {
+    width: 60px;
+    height: 60px;
 }
 
-.centered-display {
-    width: 75%;
+.logo {
+    height: 150px;
 }
 
 .cover-element {
@@ -47,5 +41,9 @@
 @include media-breakpoint-down(sm) {
     .centered-display {
         width: 100%;
+    }
+
+    .logo {
+        height: 85px;
     }
 }

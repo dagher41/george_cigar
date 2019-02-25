@@ -1,7 +1,7 @@
 import { CU_EMAIL_CHANGED, CU_MESSAGE_CHANGED, CU_POST_MESSAGE, CU_POST_MESSAGE_COMPLETE } from './contact-us.actions'
 const initialState = {
-    email: undefined,
-    message: undefined,
+    email: '',
+    message: '',
     messagePosting: false,
     messagePosted: false
 }
