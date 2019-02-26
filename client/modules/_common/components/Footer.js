@@ -13,7 +13,7 @@ export default function () {
                         </a><br />
                 <a href="tel:714-780-1195" className="text-white">&#40;714&#41;&#32;780&#45;1195</a>
             </div>
-            <div className="col-sm-12 col-md-4 my-sm-0 my-4">
+            <div className="col-sm-12 col-md-4 my-md-0 my-4">
                 <h5 className="border-bottom mr-5">Site</h5>
                 <div><Link to='/' className="py-2 text-white">Home</Link></div>
                 <div><Link to='/cigars' className="py-2 text-white">Cigars</Link></div>

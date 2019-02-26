@@ -1,5 +1,0 @@
-@mixin gradient-bg-image($image-url) {
-    background-image: linear-gradient(
-        rgba(20,20,20, .5),
-        rgba(20,20,20, .5)), url($image-url);
-}

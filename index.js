@@ -1,3 +1,5 @@
+const path = require('path');
+
 if (process.env.NODE_ENV === 'production') {
     process.env.webpackAssets = JSON.stringify(require('./dist/client/manifest.json'));
     require('./dist/server.bundle.js');
@@ -9,7 +11,7 @@ if (process.env.NODE_ENV === 'production') {
                 {
                     "name": "[hash].[ext]",
                     "publicPath": "/",
-                    "outputPath": "../dist/client",
+                    "outputPath": path.resolve(__dirname, "dist", "client"),
                 }
             ]
         ]

@@ -31,7 +31,7 @@ export default function () {
                         <a href="tel:714-780-1195" className="text-white">&#40;714&#41;&#32;780&#45;1195</a>
                     </div>
                 </div>
-                <div className="d-md-none box-60"></div>
+                <div className="d-md-none box-60 ml-auto"></div>
             </div >
         </Fragment>
     );

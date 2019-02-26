@@ -5,17 +5,17 @@
 
 .bg-cigars-1 {
     @extend .bg-hero;
-    @include gradient-bg-image('../images/bg_cigars_1.jpg')
+    background-image: url('../images/bg_cigars_1.jpg');
 }
 
 .bg-cigars-2 {
     @extend .bg-hero;
-    @include gradient-bg-image('../images/bg_cigars_2.jpg');
+    background-image: url('../images/bg_cigars_2.jpg');
 }
 
 .bg-vapes-1 {
     @extend .bg-hero;
-    @include gradient-bg-image('../images/bg_vape_1.jpg');
+    background-image: url('../images/bg_vape_1.jpg');
 }
 
 .bg-glass-1 {
@@ -118,5 +118,11 @@ h4.bm-item {
     }
     .bg-glass-tiled.sm {
         background-image: url("../images/bg_tile_glass_1.jpg");
+    }
+    .bg-cigars-2 {
+        background-image: url('../images/bg_cigars_2_mobile.jpg');
+    }
+    .bg-glass-1 {
+        background-image: url('../images/bg_glass_1_mobile.jpg');
     }
 }
