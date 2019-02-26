@@ -8,10 +8,6 @@ class ContactUsPage extends Component {
         this.state = { formValidations: {} };
     }
 
-    componentDidMount() {
-        window.scrollTo(0, 0)
-    }
-
     onEmailChange(e) {
         this.props.dispatch(emailChanged(e.target.value));
     }

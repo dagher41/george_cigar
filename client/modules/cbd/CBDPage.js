@@ -4,10 +4,6 @@ import data from './data';
 import ProductList from '../_common/components/ProductsList';
 
 class CBDPage extends Component {
-    componentDidMount() {
-        window.scrollTo(0, 0)
-    }
-
     render() {
         return (
             <div>

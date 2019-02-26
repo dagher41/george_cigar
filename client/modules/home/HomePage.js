@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import BlockQoute from '../_common/components/BlockQuote';
 
 class HomePage extends Component {
-    componentDidMount() {
-        window.scrollTo(0, 0)
-    }
-
     render() {
         return (
             <div>

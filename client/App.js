@@ -8,6 +8,7 @@ import VapesPage from './modules/vapes/VapesPage';
 import GlassPage from './modules/glass/GlassPage';
 import CBDPage from './modules/cbd/CBDPage';
 import ContactUsPage from './modules/contact-us/ContactUsPage';
+import ScrollTop from './modules/_common/components/ScrollTop';
 
 export class App extends Component {
     render() {
@@ -15,12 +16,12 @@ export class App extends Component {
             <div>
                 <Header />
                 <Switch>
-                    <Route exact path="/" component={HomePage} />
-                    <Route path="/cigars" component={CigarsPage} />
-                    <Route path="/vapes" component={VapesPage} />
-                    <Route path="/glass" component={GlassPage} />
-                    <Route path="/cbd" component={CBDPage} />
-                    <Route path="/contact-us" component={ContactUsPage} />
+                    <Route exact path="/" component={ScrollTop(HomePage)} />
+                    <Route path="/cigars" component={ScrollTop(CigarsPage)} />
+                    <Route path="/vapes" component={ScrollTop(VapesPage)} />
+                    <Route path="/glass" component={ScrollTop(GlassPage)} />
+                    <Route path="/cbd" component={ScrollTop(CBDPage)} />
+                    <Route path="/contact-us" component={ScrollTop(ContactUsPage)} />
                 </Switch>
                 <Footer />
             </div>
