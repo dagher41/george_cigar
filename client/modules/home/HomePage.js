@@ -45,6 +45,12 @@ class HomePage extends Component {
                         <div className="col-md-6 col-sm-12 p-4">
                             <h2>Location</h2>
                             <p>Convienently located in the center of Anaheim, minutes away from Disneyland, The Packing House and Center Promenade</p>
+                            <h2>Store Hours</h2>
+                            <p>
+                                Sunday-Thursday 9:30am-10:00pm
+                                <br />
+                                Friday and Saturday 9:30am-11:00pm
+                            </p>
                             <iframe className="mt-4 shadow-1 p-4"
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.4495364638265!2d-117.91255974943984!3d33.82651583694459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcd6322b0675fb%3A0x1b88e11764d183a4!2sGeorge+Cigar+(Smoke+and+Vape)!5e0!3m2!1sen!2sus!4v1550940284713"
                                 width="100%"

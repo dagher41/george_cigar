@@ -63,8 +63,7 @@ class ContactUsPage extends Component {
                                     placeholder="Your message to us"
                                     rows="7"
                                     onChange={e => this.onMessageChange(e)}
-                                    value={this.props.message}
-                                    defaultValue={this.props.message}>
+                                    value={this.props.message}>
 
                                 </textarea>
                             </div>
