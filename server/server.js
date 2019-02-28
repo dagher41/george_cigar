@@ -9,6 +9,7 @@ import { StaticRouter } from 'react-router-dom';
 import AppContainer from '../client/AppContainer';
 import configureStore from '../client/store';
 import messageRoutes from './modules/messages/messages.routes';
+import Helmet from 'react-helmet';
 
 const app = new Express();
 app.use(compression());
@@ -40,9 +41,13 @@ app.get('/*', (req, res) => {
         </StaticRouter>
     );
     const assetsManifest = process.env.webpackAssets && JSON.parse(process.env.webpackAssets);
+    const head = Helmet.rewind();
     res.send(
         `<html>
             <head>
+                ${head.base.toString()}
+                ${head.title.toString()}
+                ${head.meta.toString()}
                 <link href="https://fonts.googleapis.com/css?family=Raleway:200" rel="stylesheet">
                 <link href="${isDevMode ? '/bundle.css' : assetsManifest['/bundle.css']}" rel="stylesheet"></link>
             </head>
