@@ -1,5 +1,5 @@
 require('dotenv').config()
-
+require("@babel/polyfill");
 if (process.env.NODE_ENV === 'production') {
     process.env.webpackAssets = JSON.stringify(require('./dist/client/manifest.json'));
     require('./dist/server.bundle.js');
@@ -16,6 +16,6 @@ if (process.env.NODE_ENV === 'production') {
             ]
         ]
     });
-    require("@babel/polyfill");
+
     require('./server/server');
 }
