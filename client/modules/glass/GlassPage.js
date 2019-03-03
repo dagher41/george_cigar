@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import data from './data';
 import ProductList from '../_common/components/ProductsList';
+import ProductListBuilder from '../_common/components/ProductListBuilder';
 
 class GlassPage extends Component {
     render() {
@@ -16,11 +16,11 @@ class GlassPage extends Component {
                     </div>
                 </div>
                 <div>
-                    <ProductList products={data} productTitle="Glass" backgroundClass="bg-glass-tiled"></ProductList>
+                    <ProductList products={this.props.products || []} productTitle="Glass" requestPending={this.props.requestPending} backgroundClass="bg-glass-tiled"></ProductList>
                 </div>
             </div>
         );
     }
 }
 
-export default GlassPage;
+export default ProductListBuilder(GlassPage, { tag: 'glass' });

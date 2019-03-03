@@ -9,13 +9,16 @@ import { StaticRouter } from 'react-router-dom';
 import AppContainer from '../client/AppContainer';
 import configureStore from '../client/store';
 import messageRoutes from './modules/messages/messages.routes';
+import instagramRoutes from './modules/instagram/instagram.routes';
+import productRoutes from './modules/products/products.routes';
 import Helmet from 'react-helmet';
+
 
 const app = new Express();
 app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
-app.use('/api', messageRoutes);
+app.use('/api', [messageRoutes, instagramRoutes, productRoutes]);
 
 const isDevMode = process.env.NODE_ENV === 'development' || false;
 if (isDevMode) {
