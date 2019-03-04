@@ -12,8 +12,7 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-
-if (config.use_env_variable) {
+if (!config.console_access) {
   const context = require.context('.', true, /^\.\/(?!index\.js).*\.js$/, 'sync')
   context.keys().map(context).forEach(module => {
     const sequelizeModel = module(sequelize, Sequelize);

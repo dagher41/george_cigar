@@ -1,7 +1,8 @@
 const env = process.env.NODE_ENV || 'development';
 
 const config = {
-    operatorsAliases: false
+    operatorsAliases: false,
+    console_access: process.env.CONSOLE_ACCESS || false
 };
 
 const envConfig = {
@@ -22,7 +23,7 @@ const envConfig = {
         database: 'george_cigar_test'
     },
     production: {
-        use_env_variable: 'DATABASE_URL',
+        use_env_variable: 'DATABASE_URL'
     }
 };
 
