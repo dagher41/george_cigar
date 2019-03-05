@@ -12,7 +12,8 @@ const envConfig = {
         name: 'george_cigar_development',
         host: '127.0.0.1',
         dialect: 'postgres',
-        database: 'george_cigar_development'
+        database: 'george_cigar_development',
+        console_access: true
     },
     test: {
         username: 'root',
@@ -20,7 +21,8 @@ const envConfig = {
         name: 'george_cigar_test',
         host: '127.0.0.1',
         dialect: 'postgres',
-        database: 'george_cigar_test'
+        database: 'george_cigar_test',
+        console_access: true
     },
     production: {
         use_env_variable: 'DATABASE_URL'
