@@ -1,4 +1,5 @@
-require('dotenv').config()
+require('dotenv').config();
+require('newrelic');
 require("@babel/polyfill");
 if (process.env.NODE_ENV === 'production') {
     process.env.webpackAssets = JSON.stringify(require('./dist/client/manifest.json'));
