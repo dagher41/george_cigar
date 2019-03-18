@@ -37,6 +37,7 @@ class ProductListPage extends Component {
                     <ProductList
                         products={this.props.products || []}
                         productTitle={this.props.productListTitle}
+                        productListDescription={this.props.productListDescription}
                         requestPending={this.props.requestPending}
                         backgroundClass={this.props.listClassName}
                     />

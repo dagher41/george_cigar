@@ -17,9 +17,9 @@ export default function () {
                 <h5 className="border-bottom mr-5">Site</h5>
                 <div><Link to='/' className="py-2 text-white">Home</Link></div>
                 <div><Link to='/cigars' className="py-2 text-white">Cigars</Link></div>
-                <div><Link to='/vapes' className="py-2 text-white">Vapes</Link></div>
+                <div><Link to='/vape' className="py-2 text-white">Vape</Link></div>
                 <div><Link to='/glass' className="py-2 text-white">Glass</Link></div>
-                <div><Link to='/cbd' className="py-2 text-white">CBD</Link></div>
+                <div><Link to='/cbd' className="py-2 text-white">CBD &#47; Kratom</Link></div>
                 <div><Link to='/contact-us' className="py-2 text-white">Contact Us</Link></div>
             </div>
             <div className="col-sm-12 col-md-4">

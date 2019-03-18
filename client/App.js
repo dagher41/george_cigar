@@ -18,36 +18,40 @@ export class App extends Component {
                         render={() => <ProductListPage
                             productTitle="Cigars"
                             productListTitle="Cigar"
+                            productListDescription="Whether you enjoy a smoking fine cigar, pipe tobacco or a cigarillo, you’ll find a large selection here at George’s.   Our current collection contains the following with more additions made on a weekly basis"
                             tagName="cigars"
                             heroClassName="bg-cigars-1"
-                            heroText="Cigars, Pipes and Humidors"
+                            heroText="Cigars, Pipes and Tobacco Accessories"
                             listClassName="bg-cigars-tiled"
                         />} />
-                    <Route path="/vapes"
+                    <Route path="/vape"
                         render={() => <ProductListPage
                             productTitle="Vapes"
                             productListTitle="Vape"
+                            productListDescription="Shop our large variety of vape kits and e-juices.   George’s friendly staff also offers repair services for most vape kits.  Take a look at our selection:"
                             tagName="vapes"
                             heroClassName="bg-vapes-1"
-                            heroText="Vapes, Juices and Accessories"
+                            heroText="Vape Kits, E-Juices and Vape Accessories"
                             listClassName="bg-vape-tiled"
                         />} />
                     <Route path="/glass"
                         render={() => <ProductListPage
                             productTitle="Glass"
                             productListTitle="Glass"
+                            productListDescription="With one of the largest selection of unique glass pieces in the area, George’s is the place to come your glass related needs.   Here is a small sample of what we carry:"
                             tagName="glass"
                             heroClassName="bg-glass-1"
-                            heroText="Glass Pieces and Accessories"
+                            heroText="Glass Pipes and Glass Accessories"
                             listClassName="bg-glass-tiled"
                         />} />
                     <Route path="/cbd"
                         render={() => <ProductListPage
                             productTitle="CBD"
                             productListTitle="CBD"
+                            productListDescription="George’s brings you the healing properties of CBD and Kratom with a wide selection of related products.  Check out our assortment to choose from:"
                             tagName="cbd"
                             heroClassName="bg-cbd-1"
-                            heroText="Our CBD selection"
+                            heroText="Our CBD/Kratom Selection"
                             listClassName="bg-cbd-tiled"
                         />} />/>
                     <Route path="/contact-us" component={ScrollTop(ContactUsPage)} />

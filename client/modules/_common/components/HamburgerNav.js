@@ -20,13 +20,13 @@ class HamburgerNav extends Component {
                     <NavLink to='/cigars' className="py-2 text-white" activeClassName="border-bottom">Cigars</NavLink>
                 </div>
                 <div>
-                    <NavLink to='/vapes' className="py-2 text-white" activeClassName="border-bottom">Vapes</NavLink>
+                    <NavLink to='/vape' className="py-2 text-white" activeClassName="border-bottom">Vapes</NavLink>
                 </div>
                 <div>
                     <NavLink to='/glass' className="py-2 text-white" activeClassName="border-bottom">Glass</NavLink>
                 </div>
                 <div>
-                    <NavLink to='/cbd' className="py-2 text-white" activeClassName="border-bottom">CBD</NavLink>
+                    <NavLink to='/cbd' className="py-2 text-white" activeClassName="border-bottom">CBD &#47; Kratom</NavLink>
                 </div>
                 <div>
                     <NavLink to='/contact-us' className="py-2 text-white" activeClassName="border-bottom">Contact Us</NavLink>

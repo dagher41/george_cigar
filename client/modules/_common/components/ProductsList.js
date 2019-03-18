@@ -12,7 +12,7 @@ class ProductList extends Component {
                         <div className="col p-4">
                             <h3>Our {this.props.productTitle} Products</h3>
                             <p>
-                                We carry a wide variety of products
+                                {this.props.productListDescription}
                             </p>
                         </div>
                     </div>
@@ -36,6 +36,7 @@ ProductList.propTypes = {
         id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
         body: PropTypes.string.isRequired,
+        productListDescription: PropTypes.string,
         productImages: PropTypes.array
     })).isRequired
 }
