@@ -37,7 +37,7 @@
     "file-loader": "^3.0.1",
     "mini-css-extract-plugin": "^0.5.0",
     "node-instagram": "^4.3.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "pg": "^7.8.1",
     "postcss-cssnext": "^3.1.0",
     "postcss-focus": "^4.0.0",
