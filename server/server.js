@@ -18,6 +18,7 @@ const app = new Express();
 app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
+app.use(Express.static(path.resolve(__dirname, '../public')));
 app.use('/api', [messageRoutes, instagramRoutes, productRoutes]);
 
 const isDevMode = process.env.NODE_ENV === 'development' || false;

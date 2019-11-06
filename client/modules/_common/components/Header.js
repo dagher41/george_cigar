@@ -13,6 +13,7 @@ export default function () {
                     <Link to='/'><img src={logo} className="logo"></img></Link>
                 </div>
                 <div>
+                    <h4 class="text-white text-center font-weight-bold">George Cigar </h4>
                     <ul className="nav justify-content-center d-none d-md-flex">
                         <li className="nav-item"><NavLink exact={true} to='/' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Home</NavLink></li>
                         <li className="nav-item"><NavLink to='/cigars' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Cigars</NavLink></li>
@@ -25,7 +26,7 @@ export default function () {
                 <div className="mx-auto mx-md-0 ml-md-auto">
                     <div className="text-center text-md-left">
                         <a href="https://goo.gl/maps/26yv96nFMxq" target="_blank" className="text-white">
-                            <h5>George Cigar </h5>
+
                             804 S Anaheim Blvd Ste B<br />Anaheim&#44; CA 92805
                         </a><br />
                         <a href="tel:714-780-1195" className="text-white">&#40;714&#41;&#32;780&#45;1195</a>

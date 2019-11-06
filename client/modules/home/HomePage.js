@@ -7,7 +7,7 @@ class HomePage extends Component {
             <div>
                 <div className="vwh-100 bg-cigars-2 pt-5 row no-gutters">
                     <div className="col-sm-10 offset-sm-1 col-md-6 offset-md-3 mt-150">
-                        <h1 className="text-center text-white">Anaheim's Premier Home for Cigars, Vapes and Glass</h1>
+                        <h1 className="text-center text-white">Anaheim's Home for Premier Cigars, Vapes, Glass and CBD</h1>
                     </div>
                 </div>
                 <div className="container-fluid p-4">
@@ -15,9 +15,9 @@ class HomePage extends Component {
                         <div className="col-md-6 col-sm-12 p-4">
                             <h2>Store Hours</h2>
                             <p>
-                                Sunday-Thursday 9:30am-10:00pm
+                                Sunday-Wednesday 9:00am-10:00pm
                                 <br />
-                                Friday and Saturday 9:30am-11:00pm
+                                Thursday-Saturday 9:00am-11:00pm
                             </p>
                             <h2>Location</h2>
                             <p>Convienently located in the center of Anaheim, minutes away from Disneyland, The Packing House and Center Promenade</p>
@@ -31,9 +31,40 @@ class HomePage extends Component {
                             </iframe>
                         </div>
                         <div className="col-md-6 col-sm-12 p-4">
+                            <div className="row no-gutters">
+                                <h2>About Us</h2>
+                            </div>
+                            <div className="row no-gutters">
+                                <div className="col-md-6">
+                                    <img src="/images/georgecigar-9.jpg" width="100%" className="shadow-1 p-4"></img>
+                                </div>
+                                <div className="col-md-6 pl-md-4 mt-4 mt-sm-0">
+                                    <h5>Nabil Dagher, Owner</h5>
+                                    <p>Nabil is that shit</p>
+                                </div>
+                            </div>
+                            <div className="row no-gutters pt-5">
+                                <h2>Our History</h2>
+                            </div>
+                            <div className="row no-gutters">
+                                <div className="col-12">
+                                    <img src="/images/georgecigar-114.jpg" width="100%" className="shadow-1 p-4"></img>
+                                </div>
+
+                                <p className="mt-4">
+                                    George Cigar was founded in 2012. We started out with 5 boxes of cigars and a handful of various tobacco problems. Since then
+                                    we have grown to be Anaheim's most trusted cigar and smoke product retailer with a full humidor, a massive selection of glass and
+                                    CBD products and a beautiful outdoor lounge to relax and enjoy your smoke.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-md-12 col-sm-12 p-4">
                             <h2>What Our Customers Are Saying</h2>
                             <p>We've been proudly serving Anaheim since 2012. Here's what our customers are saying about us.</p>
                             <div className="">
+
                                 <BlockQoute
                                     quote="Great service there and super nice, clean, and neat humidor room"
                                     author="Dakota Burt"
