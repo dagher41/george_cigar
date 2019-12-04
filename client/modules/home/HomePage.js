@@ -52,7 +52,7 @@ class HomePage extends Component {
                                 </div>
 
                                 <p className="mt-4">
-                                    George Cigar was founded in 2012. We started out with 5 boxes of cigars and a handful of various tobacco problems. Since then
+                                    George Cigars was founded in 2012. We started out with 5 boxes of cigars and a handful of various tobacco problems. Since then
                                     we have grown to be Anaheim's most trusted cigar and smoke product retailer with a full humidor, a massive selection of glass and
                                     CBD products and a beautiful outdoor lounge to relax and enjoy your smoke.
                                 </p>

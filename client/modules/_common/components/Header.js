@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import HamburgerNav from './HamburgerNav';
-import logo from '../../../assets/images/logo.png';
+import logo from '../../../assets/images/social-media-02.png';
 
 export default function () {
     return (
@@ -13,7 +13,7 @@ export default function () {
                     <Link to='/'><img src={logo} className="logo"></img></Link>
                 </div>
                 <div>
-                    <h4 class="text-white text-center font-weight-bold">George Cigar </h4>
+                    <h4 className="text-white text-center font-weight-bold">George Cigars</h4>
                     <ul className="nav justify-content-center d-none d-md-flex">
                         <li className="nav-item"><NavLink exact={true} to='/' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Home</NavLink></li>
                         <li className="nav-item"><NavLink to='/cigars' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Cigars</NavLink></li>

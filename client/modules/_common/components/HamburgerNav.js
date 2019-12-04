@@ -12,7 +12,7 @@ class HamburgerNav extends Component {
     render() {
         return (
             <Menu right styles={styles} burgerButtonClassName={"d-md-none"} isOpen={this.state.isOpen}>
-                <h4 className="border-bottom text-white">George Cigar</h4>
+                <h4 className="border-bottom text-white">George Cigars</h4>
                 <div>
                     <NavLink exact={true} to='/' className="py-2 text-white" activeClassName="border-bottom">Home</NavLink>
                 </div>

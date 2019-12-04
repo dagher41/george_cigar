@@ -1,0 +1,17 @@
+extends ../../layout.pug
+
+block content
+  h1 New Product
+
+  form(action='/admin/products/' method='post')
+    label.mb-0(for='product_name') Product Name
+    div
+      input(id='product_name' name='name', type='text')
+    label.pt-3.mb-0(for='product_description') Product Description
+    div
+      input(id='product_description' type="text" name='description')
+    label.pt-3 Product Image
+    div
+      input(type="file" name='image')
+    div
+      input.btn.btn-dark.my-4(type='submit' name='Submit')  

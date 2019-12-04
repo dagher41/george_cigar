@@ -1,6 +1,9 @@
 import Express from 'express';
 import compression from 'compression';
 import bodyParser from 'body-parser';
+import passport from 'passport';
+import session from 'express-session';
+import flash from 'connect-flash';
 
 import path from 'path';
 import React from 'react';
@@ -8,18 +11,22 @@ import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import AppContainer from '../client/AppContainer';
 import configureStore from '../client/store';
-import messageRoutes from './modules/messages/messages.routes';
-import instagramRoutes from './modules/instagram/instagram.routes';
-import productRoutes from './modules/products/products.routes';
+
 import Helmet from 'react-helmet';
 
 
 const app = new Express();
-app.use(compression());
-app.use(bodyParser.json({ limit: '20mb' }));
+app.set('view engine', 'pug');
+app.set('views','./server/views');
+
+app.use(compression()); 
+app.use(flash());
+app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
 app.use(Express.static(path.resolve(__dirname, '../public')));
-app.use('/api', [messageRoutes, instagramRoutes, productRoutes]);
 
 const isDevMode = process.env.NODE_ENV === 'development' || false;
 if (isDevMode) {
@@ -36,6 +43,18 @@ if (isDevMode) {
         }
     }));
 }
+
+
+import messageRoutes from './modules/messages/messages.routes';
+import registrationRoutes from './modules/registration/registration.routes';
+import sessionRoutes from './modules/session/session.routes';
+import productRoutes from './modules/products/products.routes';
+
+app.use('/api', bodyParser.json({ limit: '20mb' }));
+app.use('/api', [messageRoutes, productRoutes.api]);
+app.use('/admin', bodyParser.urlencoded({ extended: true }));
+app.use('/admin', sessionRoutes);
+app.use('/admin', [registrationRoutes, productRoutes.admin]);
 
 app.get('/*', (req, res) => {
     const context = {};
@@ -66,7 +85,7 @@ app.get('/*', (req, res) => {
 
 app.listen((process.env.PORT || 3000), (error) => {
     if (!error) {
-        console.log(`MERN is running on port: ${(process.env.PORT || 3000)}! Build something amazing!`); // eslint-disable-line
+        console.log(`PERN is running on port: ${(process.env.PORT || 3000)}! Build something amazing!`); // eslint-disable-line
     } else {
         console.log('error: ', error);
     }

@@ -7,7 +7,7 @@ export default function () {
         <div className="row no-gutters bg-gray text-white p-5">
             <div className="col-sm-12 col-md-4">
                 <h5 className="border-bottom mr-5">Contact</h5>
-                <div>George Cigar</div>
+                <div>George Cigars</div>
                 <a href="https://goo.gl/maps/26yv96nFMxq" target="_blank" className="text-white">
                     804 S Anaheim Blvd Ste B<br />Anaheim&#44; CA 92805
                         </a><br />
