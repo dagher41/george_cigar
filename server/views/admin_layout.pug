@@ -23,6 +23,9 @@ html
                     a.nav-link(href=`/admin/cbd/products`) CBD/Kratom                                        
                 li(class=`nav-item ${category.slug == 'reviews' ? 'active' : ''}`)
                     a.nav-link(href=`/admin/reviews`) Reviews
+            div
+                form.m-0(action='/admin/logout?_method=DELETE' method='post')
+                    input.btn.btn-sm.btn-outline-light(type='submit' value="Logout")
     block content
     block foot
     #footer

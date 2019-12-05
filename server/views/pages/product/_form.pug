@@ -11,5 +11,10 @@ mixin form(action, method, product, image)
         label.pt-3(for= 'image_url') Image URL
         div
             input(type="next" name='url' id='url' value=image.url)
+        label.pt-3.mb-0(for='product') Status
+        div
+            select(id='product' name='status' value=product.status required=true)
+                option(value=1 selected=product.status == 1) Active
+                option(value=0 selected=product.status == 0) Inactive              
         div
             input.btn.btn-dark.my-4(type='submit' name='Submit')

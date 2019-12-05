@@ -29,4 +29,10 @@ router
         })(req, res, next);
       });
 
+router
+    .route('/logout') 
+    .delete((req, res) => {
+        req.logOut();
+        return res.redirect('/admin/login');
+    })
 export default router;    

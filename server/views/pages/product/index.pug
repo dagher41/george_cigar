@@ -3,13 +3,14 @@ extends ../../admin_layout.pug
 block content
     h1.mt-5= category.name + ' Products'
     a(href=`/admin/${category.slug}/products/new`)
-        button.btn.btn-info Create New Product
+        button.btn.btn-info.my-3 Create New Product
     table.table.table-striped
         thead
             tr
                 th(scope="col") ID
                 th(scope="col") Name
                 th(scope="col") Description
+                th(scope="col") Status
                 th(scope="col") Actions
         tbody
             each product in products
@@ -17,8 +18,9 @@ block content
                     th(scope="row")= product.id
                     td=product.title
                     td=product.body
+                    td=product.status == 1 ? 'Active' : 'Inactive'
                     td
                         a(href=`/admin/products/${product.id}/edit`) Edit
             else
                 tr
-                    th(colspan="4") No Products Available 
+                    th(colspan="5") No Products Available 

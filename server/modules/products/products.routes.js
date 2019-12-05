@@ -8,6 +8,7 @@ router
     .get(async (req, res) => {
         const category = await Category.find({ where: { slug: req.params.category_slug.trim().toLowerCase() } })
         res.json(await category.getProducts({
+            where: {status: 1},
             attributes: ['id', 'title', 'body', 'createdAt', 'updatedAt'],
             joinTableAttributes: [],
             include: [{
@@ -25,12 +26,12 @@ adminRouter
     .get(async (req, res) => {
         const category = await Category.find({ where: { slug: req.params.category_slug.trim().toLowerCase() } });
         const products = await category.getProducts({
-            attributes: ['id', 'title', 'body', 'createdAt', 'updatedAt'],
+            order: [['status', 'DESC']],
             joinTableAttributes: [],
             include: [{
                 model: ProductImage,
                 as: 'productImages',
-                attributes: ['id', 'url', 'createdAt', 'updatedAt']
+                attributes: ['id', 'url']
             }]
         })
 
@@ -49,11 +50,11 @@ adminRouter
     .post(async (req, res) => {
         const category = await Category.find({ where: { slug: req.params.category_slug.trim().toLowerCase() } });
 
-        const {title, body, url} = req.body;
+        const {title, body, url, status} = req.body;
         const product = await category.createProduct({
             title: title,
             body: body,
-            status: 1
+            status: status
         });
 
         const image = await product.createProductImage({
@@ -81,9 +82,10 @@ adminRouter
     .route('/products/:id/update')
     .put(async (req, res) => {
         const product = await Product.find({ where: { id: req.params.id } });
-        const {title, body, url} = req.body;
+        const {title, body, url, status} = req.body;
         product.title = title;
         product.body = body;
+        product.status = status;
         await product.save();
 
         const images = await product.getProductImages();
