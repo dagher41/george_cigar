@@ -1,0 +1,24 @@
+extends ../../admin_layout.pug
+
+block content
+    h1.mt-5= category.name + ' Products'
+    a(href=`/admin/${category.slug}/products/new`)
+        button.btn.btn-info Create New Product
+    table.table.table-striped
+        thead
+            tr
+                th(scope="col") ID
+                th(scope="col") Name
+                th(scope="col") Description
+                th(scope="col") Actions
+        tbody
+            each product in products
+                tr
+                    th(scope="row")= product.id
+                    td=product.title
+                    td=product.body
+                    td
+                        a(href=`/admin/products/${product.id}/edit`) Edit
+            else
+                tr
+                    th(colspan="4") No Products Available 

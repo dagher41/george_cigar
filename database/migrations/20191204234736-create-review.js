@@ -1,30 +1,27 @@
-
+'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('image_sources', {
+    return queryInterface.createTable('reviews', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      author_name: {
+        type: Sequelize.STRING
+      },
+      body: {
+        type: Sequelize.STRING
+      },
       source: {
         type: Sequelize.STRING
       },
-      source_id: {
-        type: Sequelize.STRING
+      status: {
+        type: Sequelize.INTEGER
       },
-      payload: {
-        type: Sequelize.TEXT
-      },
-      productImageId: {
-        type: Sequelize.INTEGER,
-        foreignKey: true,
-        references: {
-          model: 'product_images',
-          key: 'id'
-        },
-        field: 'product_image_id'
+      position: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -38,15 +35,9 @@ module.exports = {
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP(3)'),
         field: 'updated_at'
       }
-    })
-      .then(() => {
-        return queryInterface.addIndex('image_sources', ['product_image_id']);
-      });
+    });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('image_sources')
-      .then(() => {
-        return queryInterface.removeIndex('image_sources', ['product_image_id']);
-      });
+    return queryInterface.dropTable('reviews');
   }
 };

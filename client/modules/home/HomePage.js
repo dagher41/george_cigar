@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BlockQoute from '../_common/components/BlockQuote';
+import QuoteList from './QuoteList'
 
 class HomePage extends Component {
     render() {
@@ -63,28 +63,8 @@ class HomePage extends Component {
                         <div className="col-md-12 col-sm-12 p-4">
                             <h2>What Our Customers Are Saying</h2>
                             <p>We've been proudly serving Anaheim since 2012. Here's what our customers are saying about us.</p>
-                            <div className="">
-
-                                <BlockQoute
-                                    quote="Great service there and super nice, clean, and neat humidor room"
-                                    author="Dakota Burt"
-                                    source="Google Review"
-                                />
-                                <BlockQoute
-                                    quote="They had a beautiful walk in humidor and their selection was fantastic!"
-                                    author="Manny Gutierrez"
-                                    source="Google Review"
-                                />
-                                <BlockQoute
-                                    quote="Very nice staff, good selection, very helpful.  Best choice if you’re near Disney!"
-                                    author="Jason King"
-                                    source="Google Review"
-                                />
-                                <BlockQoute
-                                    quote="Cool spot. Nice selection and willing to listen to customers requests. Owner, wife, and son are nice, good people."
-                                    author="Roger J"
-                                    source="Yelp Review"
-                                />
+                            <div className="row no-gutters">
+                                <QuoteList/>
                             </div>
                         </div>
                     </div>

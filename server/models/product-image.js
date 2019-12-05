@@ -37,7 +37,6 @@ module.exports = (sequelize, DataTypes) => {
     });
   ProductImage.associate = function (models) {
     ProductImage.belongsTo(models.Product);
-    ProductImage.hasMany(models.ImageSource);
   };
   return ProductImage;
 };

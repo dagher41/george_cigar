@@ -1,7 +1,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('product_tags', {
+    return queryInterface.createTable('product_categories', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -17,14 +17,14 @@ module.exports = {
         },
         field: 'product_id',
       },
-      tagId: {
+      categoryId: {
         type: Sequelize.INTEGER,
         foreignKey: true,
         references: {
-          model: 'tags',
+          model: 'categories',
           key: 'id',
         },
-        field: 'tag_id',
+        field: 'category_id',
       },
       createdAt: {
         allowNull: false,
@@ -40,13 +40,13 @@ module.exports = {
       }
     })
       .then(() => {
-        return queryInterface.addIndex('product_tags', ['product_id']);
+        return queryInterface.addIndex('product_categories', ['product_id']);
       });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('product_tags')
+    return queryInterface.dropTable('product_categories')
       .then(() => {
-        return queryInterface.removeIndex('product_tags', ['product_id']);
+        return queryInterface.removeIndex('product_categories', ['product_id']);
       });
   }
 };

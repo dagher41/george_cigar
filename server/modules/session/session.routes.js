@@ -24,7 +24,7 @@ router
             }
           return req.logIn(user, function(err) {
             if (err) { return next(err); }
-            return res.redirect('/users/' + user.username);
+            return res.redirect('/admin/cigars/products');
           });
         })(req, res, next);
       });

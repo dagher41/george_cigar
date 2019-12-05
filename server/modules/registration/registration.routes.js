@@ -5,6 +5,7 @@ import db from '../../models';
 
 const {User} = db;
 const saltRounds = 10;
+const numAllowedUsers = 1;
 const router = new Router();
 router
     .route('/signup')
@@ -18,17 +19,23 @@ router
         const {email, password, passwordConfirmation} = req.body;
         const existingUser = await User.findOne({ where: { email } });
         if (existingUser) {
-            req.flash('info', 'Invalid Email address provided')
-            res.redirect('/admin/signup')
+            req.flash('info', 'Invalid Email address provided');
+            res.redirect('/admin/signup');
             return;
         } 
         if (password.length < 8){
-            req.flash('info', 'Password must be at least 8 characters')
+            req.flash('info', 'Password must be at least 8 characters');
             res.redirect('/admin/signup');
             return;
         }
         if (password != passwordConfirmation) {
-            req.flash('info', 'Password does not match password confirmation')
+            req.flash('info', 'Password does not match password confirmation');
+            res.redirect('/admin/signup');
+            return;
+        }
+        const numUsers = await User.count();
+        if (numUsers == numAllowedUsers) {
+            req.flash('info', 'No more users are allowed to sign up');
             res.redirect('/admin/signup');
             return;
         }
@@ -40,7 +47,7 @@ router
                   console.log('ERROR: ', err);
                 }
                 
-                return res.redirect('/admin/signup')
+                return res.redirect('/admin/cigars/products')
             });
         });
     });

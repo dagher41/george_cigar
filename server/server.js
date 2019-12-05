@@ -4,6 +4,8 @@ import bodyParser from 'body-parser';
 import passport from 'passport';
 import session from 'express-session';
 import flash from 'connect-flash';
+import EnsureLoggedIn from 'connect-ensure-login';
+import methodOverride from 'method-override';
 
 import path from 'path';
 import React from 'react';
@@ -24,6 +26,7 @@ app.use(flash());
 app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(methodOverride('_method'));
 
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
 app.use(Express.static(path.resolve(__dirname, '../public')));
@@ -44,17 +47,18 @@ if (isDevMode) {
     }));
 }
 
-
 import messageRoutes from './modules/messages/messages.routes';
 import registrationRoutes from './modules/registration/registration.routes';
 import sessionRoutes from './modules/session/session.routes';
 import productRoutes from './modules/products/products.routes';
+import reviewRoutes from './modules/review/review.routes'
 
 app.use('/api', bodyParser.json({ limit: '20mb' }));
-app.use('/api', [messageRoutes, productRoutes.api]);
+app.use('/api', [messageRoutes, productRoutes.api, reviewRoutes.api]);
 app.use('/admin', bodyParser.urlencoded({ extended: true }));
-app.use('/admin', sessionRoutes);
-app.use('/admin', [registrationRoutes, productRoutes.admin]);
+app.use('/admin', [sessionRoutes, registrationRoutes]);
+app.use('/admin', EnsureLoggedIn.ensureLoggedIn('/admin/login'))
+app.use('/admin', [productRoutes.admin, reviewRoutes.admin]);
 
 app.get('/*', (req, res) => {
     const context = {};

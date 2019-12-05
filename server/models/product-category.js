@@ -1,15 +1,13 @@
 
 module.exports = (sequelize, DataTypes) => {
-  const ImageSource = sequelize.define('ImageSource', {
-    source: DataTypes.STRING,
-    sourceId: {
-      type: DataTypes.STRING,
-      field: 'source_id'
-    },
-    payload: DataTypes.TEXT,
-    productImageId: {
+  const ProductCategory = sequelize.define('ProductCategory', {
+    productId: {
       type: DataTypes.INTEGER,
-      field: 'product_image_id'
+      field: 'product_id'
+    },
+    categoryId: {
+      type: DataTypes.INTEGER,
+      field: 'category_id'
     },
     createdAt: {
       type: DataTypes.DATE(3),
@@ -22,13 +20,13 @@ module.exports = (sequelize, DataTypes) => {
       field: 'updated_at'
     }
   }, {
-      timestamps: true,
       freezeTableName: true,
       underscored: true,
-      tableName: 'image_sources'
+      tableName: 'product_categories'
     });
-  ImageSource.associate = function (models) {
-    ImageSource.belongsTo(models.ProductImage)
+  ProductCategory.associate = function (models) {
+    ProductCategory.belongsTo(models.Product);
+    ProductCategory.belongsTo(models.Category);
   };
-  return ImageSource;
+  return ProductCategory;
 };

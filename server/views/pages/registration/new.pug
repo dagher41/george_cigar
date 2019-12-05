@@ -2,9 +2,8 @@ extends ../../layout.pug
 
 block content
   h1 New user
-
   if infoMessage
-    div=infoMessage
+    div.my-3.text-danger=infoMessage
 
   form(action='/admin/registrations' method='post')
     label.mb-0(for='user_email') User Email
