@@ -1,28 +1,31 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('reviews', {
+    return queryInterface.createTable('category_section_products', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      author_name: {
-        type: Sequelize.STRING
+      productId: {
+        type: Sequelize.INTEGER,
+        foreignKey: true,
+        references: {
+          model: 'products',
+          key: 'id'
+        },
+        field: 'product_id'
       },
-      body: {
-        type: Sequelize.TEXT
-      },
-      source: {
-        type: Sequelize.STRING
-      },
-      status: {
-        type: Sequelize.INTEGER
-      },
-      position: {
-        type: Sequelize.INTEGER
-      },
+      categorySectionId: {
+        type: Sequelize.INTEGER,
+        foreignKey: true,
+        references: {
+          model: 'category_sections',
+          key: 'id'
+        },
+        field: 'category_section_id'
+      },      
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE(3),
@@ -38,6 +41,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('reviews');
+    return queryInterface.dropTable('category_section_products');
   }
 };

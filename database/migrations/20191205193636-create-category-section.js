@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('CategorySections', {
+    return queryInterface.createTable('category_sections', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -9,28 +9,43 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       title: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       sub_heading: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       body: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
-      category_id: {
+      position: {
         type: Sequelize.INTEGER
       },
+      status: {
+        type: Sequelize.INTEGER
+      },      
+      category_id: {
+        type: Sequelize.INTEGER,
+        foreignKey: true,
+        references: {
+          model: 'categories',
+          key: 'id'
+        },
+      },      
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE(3),
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP(3)'),
+        field: 'created_at',
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE(3),
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP(3)'),
+        field: 'updated_at'
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('CategorySections');
+    return queryInterface.dropTable('category_sections');
   }
 };

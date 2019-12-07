@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       field: 'author_name'
     },
-    body: DataTypes.STRING,
+    body: DataTypes.TEXT,
     source: DataTypes.STRING,
     position: DataTypes.INTEGER,
     status: DataTypes.INTEGER

@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Category = sequelize.define('Category', {
-    name: DataTypes.STRING,
+    name: DataTypes.TEXT,
     slug: DataTypes.STRING
   }, {
     timestamps: true,
@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) => {
 });
   Category.associate = function(models) {
     // associations can be defined here
+    Category.hasMany(models.CategorySection, { as: 'sections' });
     Category.hasMany(models.ProductCategory);
+    
     Category.belongsToMany(models.Product, { through: models.ProductCategory });
   };
   return Category;

@@ -25,7 +25,9 @@ export default function () {
             <div className="col-sm-12 col-md-4">
                 <h5 className="border-bottom mr-5">Social</h5>
                 <div>
-                    <img src={instaLogo} alt="" height="50px" />
+                    <a href='https://www.instagram.com/georges_cigar_n_smoke/' target="_blank">
+                        <img src={instaLogo} alt="" height="50px" />
+                    </a>
                 </div>
             </div>
         </div >

@@ -10,7 +10,7 @@ mixin form(action, method, product, image)
             input(id='product_description' type="text" name='body' value=product.body)
         label.pt-3(for= 'image_url') Image URL
         div
-            input(type="next" name='url' id='url' value=image.url)
+            input(type="next" name='url' id='url' value=image.url required=true)
         label.pt-3.mb-0(for='product') Status
         div
             select(id='product' name='status' value=product.status required=true)

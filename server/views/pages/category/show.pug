@@ -1,0 +1,51 @@
+extends ../../admin_layout.pug
+
+block content
+    .row
+        .col-12
+            h1.mt-5= category.name + ' Admin Page'
+
+            .d-flex.justify-content-between.align-items-center
+                h4 Page Sections
+                a(href=`/admin/categories/${category.slug}/category_section/new`)
+                    button.btn.btn-info.my-2 Create New Section        
+            .row
+                each section in sections
+                    .col-12.shadow-1.bg-white.my-4
+                        .p-4
+                            h3= section.title
+                            .d-flex.align-items-center
+                                span.mr-2= `[Position: ${section.position}]`
+                                span.mx-2= `[Status: ${section.status}]`
+                                span.ml-2 
+                                    | [
+                                    a(href=`/admin/category_sections/${section.id}/edit`) Edit Section
+                                    | ]
+                            p= section.body                                    
+                            .d-flex.justify-content-between.align-items-center
+                                h5 Products  
+                                a(href=`/admin/category_sections/${section.id}/products/new`)
+                                    button.btn.btn-sm.btn-info.m-2 Create New Product                                          
+                            table.table.table-striped
+                                thead
+                                    tr
+                                        th(scope="col") ID
+                                        th(scope="col") Name
+                                        th(scope="col") Description
+                                        th(scope="col") Status
+                                        th(scope="col") Actions
+                                tbody
+                                    each product in section.products
+                                        tr
+                                            th(scope="row")= product.id
+                                            td=product.title
+                                            td=product.body
+                                            td=product.status == 1 ? 'Active' : 'Inactive'
+                                            td
+                                                a(href=`/admin/products/${product.id}/edit`) Edit
+                                    else
+                                        tr
+                                            th(colspan="5") No Products Available
+                else
+                    p No Sections Available            
+

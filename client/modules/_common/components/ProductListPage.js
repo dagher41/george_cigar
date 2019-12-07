@@ -35,7 +35,7 @@ class ProductListPage extends Component {
                 </div>
                 <div>
                     <ProductList
-                        products={this.props.products || []}
+                        sections={this.props.sections || []}
                         productTitle={this.props.productListTitle}
                         productListDescription={this.props.productListDescription}
                         requestPending={this.props.requestPending}
@@ -59,7 +59,7 @@ ProductListPage.propTypes = {
 
 function mapStateToProps({ productList: state }) {
     return {
-        products: state.products,
+        sections: state.sections,
         requestPending: state.requestPending
     };
 }

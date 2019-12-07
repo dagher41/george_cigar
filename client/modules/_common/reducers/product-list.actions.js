@@ -6,7 +6,7 @@ export function requestProducts(category) {
     return dispatch => {
         dispatch(productRequestComplete([]));
         dispatch(initiateRequest());
-        return callApi({ method: 'get', endpoint: `${category}/products` })
+        return callApi({ method: 'get', endpoint: `categories/${category}` })
             .then(response => {
                 return dispatch(productRequestComplete(response.data))
             });

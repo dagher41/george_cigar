@@ -1,0 +1,8 @@
+extends ../../admin_layout.pug
+
+block content
+  h1.mt-5 Edit Section
+  p
+    a(href=`/admin/categories/${category.slug}`)= `${category.name} Products List`
+    include _form
+    +form(`/admin/category_sections/${section.id}/update`, 'put', section)

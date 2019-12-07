@@ -4,6 +4,6 @@ block content
   h1.mt-5 New Product
   h4= "Category: " + category.name
   p
-    a(href=`/admin/${category.slug}/products`)= `${category.name} Products List`
+    a(href=`/admin/categories/${category.slug}`)= `${category.name} Admin Page`
     include _form
-    +form(`/admin/${category.slug}/products/`, 'post', {}, {})
+    +form(`/admin/category_sections/${section.id}/products/`, 'post', {}, {})

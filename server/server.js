@@ -50,15 +50,27 @@ if (isDevMode) {
 import messageRoutes from './modules/messages/messages.routes';
 import registrationRoutes from './modules/registration/registration.routes';
 import sessionRoutes from './modules/session/session.routes';
-import productRoutes from './modules/products/products.routes';
-import reviewRoutes from './modules/review/review.routes'
+import categoryRoutes from './modules/category/category.routes';
+import categorySectionRoutes from './modules/category-section/category-section.routes';
+import productRoutes from './modules/product/product.routes';
+import reviewRoutes from './modules/review/review.routes';
 
 app.use('/api', bodyParser.json({ limit: '20mb' }));
-app.use('/api', [messageRoutes, productRoutes.api, reviewRoutes.api]);
 app.use('/admin', bodyParser.urlencoded({ extended: true }));
+
+app.use('/api', [
+    messageRoutes.api, 
+    categoryRoutes.api, 
+    reviewRoutes.api
+]);
 app.use('/admin', [sessionRoutes, registrationRoutes]);
-app.use('/admin', EnsureLoggedIn.ensureLoggedIn('/admin/login'))
-app.use('/admin', [productRoutes.admin, reviewRoutes.admin]);
+app.use('/admin', EnsureLoggedIn.ensureLoggedIn('/admin/login'));
+app.use('/admin', [
+    productRoutes.admin, 
+    reviewRoutes.admin, 
+    categorySectionRoutes.admin,
+    categoryRoutes.admin
+]);
 
 app.get('/*', (req, res) => {
     const context = {};

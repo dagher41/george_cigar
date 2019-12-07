@@ -20,24 +20,20 @@ router
         const existingUser = await User.findOne({ where: { email } });
         if (existingUser) {
             req.flash('info', 'Invalid Email address provided');
-            res.redirect('/admin/signup');
-            return;
+            return res.redirect('/admin/signup');
         } 
         if (password.length < 8){
             req.flash('info', 'Password must be at least 8 characters');
-            res.redirect('/admin/signup');
-            return;
+            return res.redirect('/admin/signup');
         }
         if (password != passwordConfirmation) {
             req.flash('info', 'Password does not match password confirmation');
-            res.redirect('/admin/signup');
-            return;
+            return res.redirect('/admin/signup');
         }
         const numUsers = await User.count();
         if (numUsers == numAllowedUsers) {
             req.flash('info', 'No more users are allowed to sign up');
-            res.redirect('/admin/signup');
-            return;
+            return res.redirect('/admin/signup');
         }
 
         return bcrypt.hash(password, saltRounds, async (err, password) => {
@@ -47,7 +43,7 @@ router
                   console.log('ERROR: ', err);
                 }
                 
-                return res.redirect('/admin/cigars/products')
+                return res.redirect('/admin/categories/cigars')
             });
         });
     });
