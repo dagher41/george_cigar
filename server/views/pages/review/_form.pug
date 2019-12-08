@@ -7,7 +7,7 @@ mixin form(action, method, review)
             input(id='author_name' name='author_name', type='text' value=review.authorName required=true)
         label.pt-3.mb-0(for='review_body') Review Body
         div
-            textarea(id='review_body' rows=10 name='body' value=review.body required=true)
+            textarea(id='review_body' rows=10 name='body' required=true)=review.body
         label.pt-3.mb-0(for='review_source') Review Source
         div
             input(id='review_source' type="text" name='source' value=review.source required=true)
