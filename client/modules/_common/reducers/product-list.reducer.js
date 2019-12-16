@@ -13,7 +13,7 @@ export default function productList(previousState = initialState, action) {
         case PL_PRODUCTS_COMPLETE:
             return Object.assign({}, previousState, {
                 requestPending: false,
-                sections: action.response.sections
+                sections: (action && action.response && action.response.sections) || []
             });
         default:
             return previousState
