@@ -40,7 +40,11 @@ class HomePage extends Component {
                                 </div>
                                 <div className="col-md-6 pl-md-4 mt-4 mt-sm-0">
                                     <h5>Nabil Dagher, Owner</h5>
-                                    <p>Nabil is that shit</p>
+                                    <p>
+                                        I've worked in various customer service jobs ranging from bartending to jewelry sales and repairs. I built
+                                        George Cigars with the goal of helping our customers find exactly what they are looking for and being completely satisifed
+                                        with their experience.
+                                    </p>
                                 </div>
                             </div>
                             <div className="row no-gutters pt-5">
@@ -50,10 +54,9 @@ class HomePage extends Component {
                                 <div className="col-12">
                                     <img src="/images/georgecigar-114.jpg" width="100%" className="shadow-1 p-4"></img>
                                 </div>
-
                                 <p className="mt-4">
-                                    George Cigars was founded in 2012. We started out with 5 boxes of cigars and a handful of various tobacco problems. Since then
-                                    we have grown to be Anaheim's most trusted cigar and smoke product retailer with a full humidor, a massive selection of glass and
+                                    George Cigars was founded in 2012. We started out with 5 boxes of cigars and a handful of various tobacco products. Since then
+                                    we have grown to be Anaheim's most trusted cigar and smoke product retailer with a full humidor, a great selection of glass, vape and
                                     CBD products and a beautiful outdoor lounge to relax and enjoy your smoke.
                                 </p>
                             </div>
@@ -64,7 +67,7 @@ class HomePage extends Component {
                             <h2>What Our Customers Are Saying</h2>
                             <p>We've been proudly serving Anaheim since 2012. Here's what our customers are saying about us.</p>
                             <div className="row no-gutters">
-                                <QuoteList/>
+                                <QuoteList />
                             </div>
                         </div>
                     </div>
