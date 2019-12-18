@@ -1,17 +1,25 @@
 import { Router } from 'express';
-import axios from 'axios';
+import db from '../../models';
+const { Message } = db;
 
-const router = new Router();
-router
+const publicRoutes = new Router();
+publicRoutes
     .route('/messages')
-    .post((req, res) => {
-        axios({
-            method: 'get',
-            url: 'https://script.google.com/macros/s/AKfycbyLv0aUKEVjlLbcM7rYjueRCd5VDE_7qze9qg3RW1q-vRxj7bPe/exec',
-            params: Object.assign({}, req.body, { timestamp: (new Date()).toString() })
-        }).then(response => {
-            res.json(response.data)
-        })
+    .post(async (req, res) => {
+        const { email, message: body } = req.body;
+        const message = await Message.create({ email, body });
+        setTimeout(() => {
+            res.json(message);
+        }, 500);
     });
 
-export default { api: router };
+const adminRoutes = new Router();
+
+adminRoutes
+    .route('/messages')
+    .get(async (_, res) => {
+        const messages = await Message.findAll({ order: [['created_at', 'DESC']] })
+        res.render('pages/messages/index', { category: { slug: 'messages' }, messages });
+    });
+
+export default { api: publicRoutes, admin: adminRoutes };

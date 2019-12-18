@@ -19,9 +19,9 @@ import Helmet from 'react-helmet';
 
 const app = new Express();
 app.set('view engine', 'pug');
-app.set('views','./server/views');
+app.set('views', './server/views');
 
-app.use(compression()); 
+app.use(compression());
 app.use(flash());
 app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
@@ -59,17 +59,18 @@ app.use('/api', bodyParser.json({ limit: '20mb' }));
 app.use('/admin', bodyParser.urlencoded({ extended: true }));
 
 app.use('/api', [
-    messageRoutes.api, 
-    categoryRoutes.api, 
+    messageRoutes.api,
+    categoryRoutes.api,
     reviewRoutes.api
 ]);
 app.use('/admin', [sessionRoutes, registrationRoutes]);
 app.use('/admin', EnsureLoggedIn.ensureLoggedIn('/admin/login'));
 app.use('/admin', [
-    productRoutes.admin, 
-    reviewRoutes.admin, 
+    productRoutes.admin,
+    reviewRoutes.admin,
     categorySectionRoutes.admin,
-    categoryRoutes.admin
+    categoryRoutes.admin,
+    messageRoutes.admin
 ]);
 
 app.get('/*', (req, res) => {
