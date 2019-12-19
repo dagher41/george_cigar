@@ -7,7 +7,7 @@ export default function AppContainer(props) {
     return (
         <Provider store={props.store}>
             <Helmet
-                title="George's Cigar"
+                title="George Cigars"
                 meta={[
                     { charset: 'utf-8' },
                     {

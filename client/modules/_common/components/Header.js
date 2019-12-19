@@ -15,12 +15,12 @@ export default function () {
                 <div>
                     <h4 className="text-white text-center font-weight-bold">George Cigars</h4>
                     <ul className="nav justify-content-center d-none d-md-flex">
-                        <li className="nav-item"><NavLink exact={true} to='/' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Home</NavLink></li>
-                        <li className="nav-item"><NavLink to='/cigars' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Cigars</NavLink></li>
-                        <li className="nav-item"><NavLink to='/vape' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Vape</NavLink></li>
-                        <li className="nav-item"><NavLink to='/glass' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Glass</NavLink></li>
-                        <li className="nav-item"><NavLink to='/cbd' className="nav-link text-white mx-3" activeClassName="bordered-bottom">CBD &#47; Kratom</NavLink></li>
-                        <li className="nav-item"><NavLink to='/contact-us' className="nav-link text-white mx-3" activeClassName="bordered-bottom">Contact Us</NavLink></li>
+                        <li className="nav-item"><NavLink exact={true} to='/' className="nav-link text-white mx-3" activeClassName="bordered-bottom" title="Home">Home</NavLink></li>
+                        <li className="nav-item"><NavLink to='/cigars' className="nav-link text-white mx-3" activeClassName="bordered-bottom" title="Cigars">Cigars</NavLink></li>
+                        <li className="nav-item"><NavLink to='/vape' className="nav-link text-white mx-3" activeClassName="bordered-bottom" title="Vape">Vape</NavLink></li>
+                        <li className="nav-item"><NavLink to='/glass' className="nav-link text-white mx-3" activeClassName="bordered-bottom" title="Glass">Glass</NavLink></li>
+                        <li className="nav-item"><NavLink to='/cbd' className="nav-link text-white mx-3" activeClassName="bordered-bottom" title="CBD / Kratom">CBD &#47; Kratom</NavLink></li>
+                        <li className="nav-item"><NavLink to='/contact-us' className="nav-link text-white mx-3" activeClassName="bordered-bottom" title="Contact Us">Contact Us</NavLink></li>
                     </ul>
                 </div>
                 <div className="mx-auto mx-md-0 ml-md-auto">

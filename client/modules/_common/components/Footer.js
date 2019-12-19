@@ -15,18 +15,18 @@ export default function () {
             </div>
             <div className="col-sm-12 col-md-4 my-md-0 my-4">
                 <h5 className="border-bottom mr-5">Site</h5>
-                <div><Link to='/' className="py-2 text-white">Home</Link></div>
-                <div><Link to='/cigars' className="py-2 text-white">Cigars</Link></div>
-                <div><Link to='/vape' className="py-2 text-white">Vape</Link></div>
-                <div><Link to='/glass' className="py-2 text-white">Glass</Link></div>
-                <div><Link to='/cbd' className="py-2 text-white">CBD &#47; Kratom</Link></div>
-                <div><Link to='/contact-us' className="py-2 text-white">Contact Us</Link></div>
+                <div><Link to='/' className="py-2 text-white" title="Home">Home</Link></div>
+                <div><Link to='/cigars' className="py-2 text-white" title="Cigars">Cigars</Link></div>
+                <div><Link to='/vape' className="py-2 text-white" title="Vape">Vape</Link></div>
+                <div><Link to='/glass' className="py-2 text-white" title="Glass">Glass</Link></div>
+                <div><Link to='/cbd' className="py-2 text-white" title="CBD /   Kratom">CBD &#47; Kratom</Link></div>
+                <div><Link to='/contact-us' className="py-2 text-white" title="Contact Us">Contact Us</Link></div>
             </div>
             <div className="col-sm-12 col-md-4">
                 <h5 className="border-bottom mr-5">Social</h5>
                 <div>
-                    <a href='https://www.instagram.com/georges_cigar_n_smoke/' target="_blank">
-                        <img src={instaLogo} alt="" height="50px" />
+                    <a href='https://www.instagram.com/george_cigar_n_smoke/' title="Instagram Link" target="_blank">
+                        <img src={instaLogo} alt="instagram link" height="50px" />
                     </a>
                 </div>
             </div>
