@@ -42,6 +42,11 @@
     z-index: 99;
 }
 
+.seperator {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
 @include media-breakpoint-down(sm) {
     .centered-display {
         width: 100%;

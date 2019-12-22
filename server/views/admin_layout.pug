@@ -9,20 +9,20 @@ html
 
   body.container
     nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
-        .navbar-brand(href='#') George Cigar Admin
+        .navbar-brand(href='#') George Cigars Admin
         #navbarCollapse.collapse.navbar-collapse
             ul.navbar-nav.mr-auto
-                li(class=`nav-item ${category.slug == 'cigars' ? 'active' : ''}`)
+                li(className=`nav-item ${category.slug == 'cigars' ? 'active' : ''}`)
                     a.nav-link(href=`/admin/categories/cigars`) Cigars
-                li(class=`nav-item ${category.slug == 'vapes' ? 'active' : ''}`)
+                li(className=`nav-item ${category.slug == 'vapes' ? 'active' : ''}`)
                     a.nav-link(href=`/admin/categories/vapes`) Vape
-                li(class=`nav-item ${category.slug == 'glass' ? 'active' : ''}`)
+                li(className=`nav-item ${category.slug == 'glass' ? 'active' : ''}`)
                     a.nav-link(href=`/admin/categories/glass`) Glass
-                li(class=`nav-item ${category.slug == 'cbd' ? 'active' : ''}`)
+                li(className=`nav-item ${category.slug == 'cbd' ? 'active' : ''}`)
                     a.nav-link(href=`/admin/categories/cbd`) CBD/Kratom
-                li(class=`nav-item ${category.slug == 'reviews' ? 'active' : ''}`)
+                li(className=`nav-item ${category.slug == 'reviews' ? 'active' : ''}`)
                     a.nav-link(href=`/admin/reviews`) Reviews
-                li(class=`nav-item ${category.slug == 'messages' ? 'active' : ''}`)
+                li(className=`nav-item ${category.slug == 'messages' ? 'active' : ''}`)
                     a.nav-link(href=`/admin/messages`) Messages
             div
                 form.m-0(action='/admin/logout?_method=DELETE' method='post')

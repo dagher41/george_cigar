@@ -42,7 +42,7 @@ class HomePage extends Component {
                                     <h5>Nabil Dagher, Owner</h5>
                                     <p>
                                         I've worked in various customer service jobs ranging from bartending to jewelry sales and repairs. I built
-                                        George Cigars with the goal of helping our customers find exactly what they are looking for and being completely satisifed
+                                        George Cigar &amp; Smoke with the goal of helping our customers find exactly what they are looking for and being completely satisifed
                                         with their experience.
                                     </p>
                                 </div>
@@ -55,7 +55,7 @@ class HomePage extends Component {
                                     <img src="/images/georgecigar-114.jpg" width="100%" className="shadow-1 p-4"></img>
                                 </div>
                                 <p className="mt-4">
-                                    George Cigars was founded in 2012. We started out with 5 boxes of cigars and a handful of various tobacco products. Since then
+                                    George Cigar &amp; Smoke was founded in 2012. We started out with 5 boxes of cigars and a handful of various tobacco products. Since then
                                     we have grown to be Anaheim's most trusted cigar and smoke product retailer with a full humidor, a great selection of glass, vape and
                                     CBD products and a beautiful outdoor lounge to relax and enjoy your smoke.
                                 </p>

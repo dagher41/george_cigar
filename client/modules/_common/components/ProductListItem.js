@@ -5,8 +5,6 @@ class ProductListItem extends Component {
 
     render() {
         const imgUrl = this.props.productImages.length && this.props.productImages[0].url;
-        console.log(this.props.productImages[0])
-        console.log(imgUrl);
         return (
             <div className="col-sm-12 col-md-6">
                 <div className="position-relative pt-100 w-100" >
