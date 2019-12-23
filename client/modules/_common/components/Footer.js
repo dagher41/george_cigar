@@ -14,7 +14,7 @@ export default function () {
                 <div className="d-flex">
                     <i className="lnr lnr-map-marker mr-2 text-white mt-1" />
                     <a href="https://goo.gl/maps/26yv96nFMxq" target="_blank" className="text-white">
-                        804 S Anaheim Blvd<br /> Ste B<br />Anaheim&#44; CA 92805
+                        804 S Anaheim Blvd Ste B<br />Anaheim&#44; CA 92805
                         </a>
                 </div>
                 <div className="d-flex">
