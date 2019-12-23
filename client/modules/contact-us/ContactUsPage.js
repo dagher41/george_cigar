@@ -31,7 +31,7 @@ class ContactUsPage extends Component {
                 <div className="row px-0 px-md-5">
                     <div className="col-sm-12 col-md-6">
                         <div className="form-group mx-4 mx-md-0 mr-md-4">
-                            <div className="my-3">
+                            <div>
                                 <h3 className="">We are here for you</h3>
                                 <h4>Let us know what products you would like us to carry, your thoughts about our store or just general feedback.</h4>
                                 <hr className="bg-white seperator" />
@@ -76,7 +76,7 @@ class ContactUsPage extends Component {
                     <div className="col-sm-12 col-md-6 d-none d-sm-block">
                         <div className="mx-4 mx-md-0 mr-md-4">
                             <h3>Business Information</h3>
-                            <h4 className="mt-4">
+                            <h4 className="mt-3">
                                 <i className="lnr lnr-map-marker mr-2" />Address
                             </h4>
                             <p>
