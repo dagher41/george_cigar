@@ -9,7 +9,7 @@ class ProductListItem extends Component {
             <div className="col-sm-12 col-md-6">
                 <div className="position-relative pt-100 w-100" >
                     <div className="p-4 my-4 m-md-4 bg-white shadow-1 cover-element">
-                        <img src={imgUrl} className="" width="100%" height="100%"></img>
+                        <img loading="lazy" src={imgUrl} className="" width="100%" height="100%"></img>
                         <div className="bottom-overlay cover-element m-4"></div>
                         <div className="cover-element">
                             <div className="position-absolute from-bottom p-4 text-white">

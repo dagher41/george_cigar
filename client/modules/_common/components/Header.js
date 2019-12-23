@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import HamburgerNav from './HamburgerNav';
-import logo from '../../../assets/images/social-media-02.png';
+import logo from '../../../assets/images/logo.png';
 
 export default function () {
     return (

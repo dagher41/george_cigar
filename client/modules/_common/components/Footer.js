@@ -35,10 +35,10 @@ export default function () {
                 <h5 className="border-bottom mr-5">Social</h5>
                 <div>
                     <a className="mr-3" href='https://www.facebook.com/George-Cigar-Smoke-102131994594656/' title="Facebook Link" target="_blank">
-                        <img src={fbLogo} alt="facebook link" height="50px" />
+                        <img loading="lazy" src={fbLogo} alt="facebook link" height="50px" />
                     </a>
                     <a className="mr-3" href='https://www.instagram.com/george_cigar_n_smoke/' title="Instagram Link" target="_blank">
-                        <img src={instaLogo} alt="instagram link" height="50px" />
+                        <img loading="lazy" src={instaLogo} alt="instagram link" height="50px" />
                     </a>
                 </div>
             </div>
