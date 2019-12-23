@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import db from '../../models';
-const { CategorySection, Product} = db;
+const { CategorySection, Product } = db;
 
 const adminRouter = new Router();
 adminRouter
@@ -8,7 +8,7 @@ adminRouter
     .get(async (req, res) => {
         const section = await CategorySection.find({ where: { id: req.params.section_id } })
         const category = await section.getCategory();
-        res.render('pages/product/new', {category, section})
+        res.render('pages/product/new', { currentPage: category.name, category, section })
     });
 
 adminRouter
@@ -17,7 +17,7 @@ adminRouter
         const section = await CategorySection.findOne({ where: { id: req.params.section_id } })
         const category = await section.getCategory();
 
-        const {title, body, url, status} = req.body;
+        const { title, body, url, status } = req.body;
         const product = await category.createProduct({
             title,
             body,
@@ -46,14 +46,14 @@ adminRouter
         const images = await product.getProductImages();
         const image = images[0];
 
-        res.render('pages/product/edit', {category, product, image});
+        res.render('pages/product/edit', { currentPage: category.name, category, product, image });
     });
 
 adminRouter
     .route('/products/:id/update')
     .put(async (req, res) => {
         const product = await Product.find({ where: { id: req.params.id } });
-        const {title, body, url, status} = req.body;
+        const { title, body, url, status } = req.body;
         product.title = title;
         product.body = body;
         product.status = status;

@@ -19,7 +19,7 @@ adminRoutes
     .route('/messages')
     .get(async (_, res) => {
         const messages = await Message.findAll({ order: [['created_at', 'DESC']] })
-        res.render('pages/messages/index', { category: { slug: 'messages' }, messages });
+        res.render('pages/messages/index', { currentPage: 'messages', messages });
     });
 
 export default { api: publicRoutes, admin: adminRoutes };

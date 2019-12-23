@@ -1,0 +1,21 @@
+mixin product_table(products)
+    table.table.table-striped
+        thead
+            tr
+                th(scope="col") ID
+                th(scope="col") Name
+                th(scope="col") Description
+                th(scope="col") Status
+                th(scope="col") Actions
+        tbody
+            each product in products
+                tr
+                    th(scope="row")= product.id
+                    td=product.title
+                    td=product.body
+                    td=product.status == 1 ? 'Active' : 'Inactive'
+                    td
+                        a(href=`/admin/products/${product.id}/edit`) Edit
+            else
+                tr
+                    th(colspan="5") No Products Available

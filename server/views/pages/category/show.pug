@@ -8,7 +8,7 @@ block content
             .d-flex.justify-content-between.align-items-center
                 h4 Page Sections
                 a(href=`/admin/categories/${category.slug}/category_section/new`)
-                    button.btn.btn-info.my-2 Create New Section        
+                    button.btn.btn-info.my-2 Create New Section
             .row
                 each section in sections
                     .col-12.shadow-1.bg-white.my-4
@@ -17,35 +17,27 @@ block content
                             .d-flex.align-items-center
                                 span.mr-2= `[Position: ${section.position}]`
                                 span.mx-2= `[Status: ${section.status}]`
-                                span.ml-2 
+                                span.ml-2
                                     | [
                                     a(href=`/admin/category_sections/${section.id}/edit`) Edit Section
                                     | ]
-                            p= section.body                                    
+                            p= section.body
                             .d-flex.justify-content-between.align-items-center
-                                h5 Products  
+                                h5 Products
                                 a(href=`/admin/category_sections/${section.id}/products/new`)
-                                    button.btn.btn-sm.btn-info.m-2 Create New Product                                          
-                            table.table.table-striped
-                                thead
-                                    tr
-                                        th(scope="col") ID
-                                        th(scope="col") Name
-                                        th(scope="col") Description
-                                        th(scope="col") Status
-                                        th(scope="col") Actions
-                                tbody
-                                    each product in section.products
-                                        tr
-                                            th(scope="row")= product.id
-                                            td=product.title
-                                            td=product.body
-                                            td=product.status == 1 ? 'Active' : 'Inactive'
-                                            td
-                                                a(href=`/admin/products/${product.id}/edit`) Edit
-                                    else
-                                        tr
-                                            th(colspan="5") No Products Available
+                                    button.btn.btn-sm.btn-info.m-2 Create New Product
+                            ul.nav.nav-tabs(id=`myTab-${section.id}` role='tablist')
+                                li.nav-item
+                                    a.nav-link.active(id=`active-products-${section.id}` data-toggle='tab' href=`#active-products-tab-${section.id}` role='tab' aria-controls='home' aria-selected='true') Active
+                                li.nav-item
+                                    a.nav-link(id=`inactive-products-${section.id}` data-toggle='tab' href=`#inactive-products-tab-${section.id}` role='tab' aria-controls='profile' aria-selected='false') Inactive
+
+                            .tab-content(id=`myTab-${section.id}Content`)
+                                .tab-pane.fade.show.active(id=`active-products-tab-${section.id}` role='tabpanel' aria-labelledby='home-tab')
+                                    include _product_table
+                                    +product_table(section.products.filter(product => product.status == 1))
+                                .tab-pane.fade(id=`inactive-products-tab-${section.id}` role='tabpanel' aria-labelledby='profile-tab')
+                                    +product_table(section.products.filter(product => product.status == 0))
                 else
-                    p No Sections Available            
+                    p No Sections Available
 

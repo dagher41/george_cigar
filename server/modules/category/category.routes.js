@@ -21,13 +21,13 @@ apiRouter
                     as: 'products',
                     required: true,
                     through: { attributes: [] },
-                    where: {status: 1},
+                    where: { status: 1 },
                     attributes: ['id', 'title', 'body'],
                     include: {
                         model: ProductImage,
                         required: true,
                         as: 'productImages',
-                        attributes: ['id', 'url', 'createdAt', 'updatedAt']                   
+                        attributes: ['id', 'url', 'createdAt', 'updatedAt']
                     }
                 }
             }
@@ -35,14 +35,14 @@ apiRouter
 
         res.json(category);
     });
-    
+
 const adminRouter = new Router();
 
 adminRouter
     .route('/categories/:slug')
     .get(async (req, res) => {
-        const category = await Category.findOne({ 
-            where: { slug: req.params.slug } 
+        const category = await Category.findOne({
+            where: { slug: req.params.slug }
         });
         const sections = await category.getSections({
             joinTableAttributes: [],
@@ -53,6 +53,6 @@ adminRouter
             order: [['position', 'ASC']]
         });
 
-        res.render('pages/category/show', {category, sections})
+        res.render('pages/category/show', { currentPage: category.name, category, sections })
     });
-export default {api: apiRouter, admin: adminRouter};    
+export default { api: apiRouter, admin: adminRouter };

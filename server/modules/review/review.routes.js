@@ -6,28 +6,28 @@ const apiRouter = new Router();
 apiRouter
     .route('/reviews')
     .get(async (_, res) => {
-        res.json(await Review.findAll({where: {status: 1}, order: [['position', 'ASC']]}));
+        res.json(await Review.findAll({ where: { status: 1 }, order: [['position', 'ASC']] }));
     });
 
 const adminRouter = new Router();
 adminRouter
     .route('/reviews')
     .get(async (req, res) => {
-        const reviews = await Review.findAll({order: [['status', 'DESC'], ['position', 'ASC']]});
-        res.render('pages/review/index', {category: {slug: 'reviews'}, reviews})
+        const reviews = await Review.findAll({ order: [['status', 'DESC'], ['position', 'ASC']] });
+        res.render('pages/review/index', { currentPage: 'reviews', reviews })
     });
 
 adminRouter
     .route('/reviews/new')
     .get(async (_, res) => {
-        res.render('pages/review/new', {category: {slug: 'reviews'}});
+        res.render('pages/review/new', { currentPage: 'reviews' });
     });
 
 adminRouter
     .route('/reviews')
     .post(async (req, res) => {
-        const {author_name: authorName , body, source, position, status} = req.body;
-        const review = await Review.create({authorName, body, source, position, status});
+        const { author_name: authorName, body, source, position, status } = req.body;
+        const review = await Review.create({ authorName, body, source, position, status });
 
         return res.redirect('/admin/reviews');
     });
@@ -35,15 +35,15 @@ adminRouter
 adminRouter
     .route('/reviews/:id/edit')
     .get(async (req, res) => {
-        const review = await Review.find({where: {id: req.params.id}})
-        res.render('pages/review/edit', {category: {slug: 'reviews'}, review});
+        const review = await Review.find({ where: { id: req.params.id } })
+        res.render('pages/review/edit', { currentPage: 'reviews', review });
     });
 
 adminRouter
     .route('/reviews/:id/update')
     .put(async (req, res) => {
-        const {author_name: authorName , body, source, position, status} = req.body;
-        const review = await Review.find({where: {id: req.params.id}});
+        const { author_name: authorName, body, source, position, status } = req.body;
+        const review = await Review.find({ where: { id: req.params.id } });
         review.authorName = authorName;
         review.body = body;
         review.source = source;
@@ -54,4 +54,4 @@ adminRouter
         return res.redirect('/admin/reviews');
     });
 
-export default {api: apiRouter, admin: adminRouter};    
+export default { api: apiRouter, admin: adminRouter };
