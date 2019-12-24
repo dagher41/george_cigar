@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import db from '../../models';
-const { CategorySection, Product } = db;
+const { CategorySection, Product, CategorySectionProduct } = db;
 
 const adminRouter = new Router();
 adminRouter
@@ -17,7 +17,7 @@ adminRouter
         const section = await CategorySection.findOne({ where: { id: req.params.section_id } })
         const category = await section.getCategory();
 
-        const { title, body, url, status } = req.body;
+        const { title, body, url, status, position } = req.body;
         const product = await category.createProduct({
             title,
             body,
@@ -29,8 +29,10 @@ adminRouter
             status: 1
         });
 
+        console.log("position: ", position);
         const relation = await product.createCategorySectionProduct({
-            category_section_id: section.id
+            category_section_id: section.id,
+            position
         });
 
         return res.redirect(`/admin/categories/${category.slug}`);
@@ -39,7 +41,13 @@ adminRouter
 adminRouter
     .route('/products/:id/edit')
     .get(async (req, res) => {
-        const product = await Product.find({ where: { id: req.params.id } });
+        const product = await Product.find({
+            where: { id: req.params.id },
+            include: {
+                model: CategorySectionProduct,
+                as: 'sectionProducts'
+            }
+        });
         const categories = await product.getCategories();
         const category = categories[0];
 
@@ -53,7 +61,7 @@ adminRouter
     .route('/products/:id/update')
     .put(async (req, res) => {
         const product = await Product.find({ where: { id: req.params.id } });
-        const { title, body, url, status } = req.body;
+        const { title, body, url, status, position } = req.body;
         product.title = title;
         product.body = body;
         product.status = status;
@@ -63,6 +71,11 @@ adminRouter
         const image = images[0];
         image.url = url;
         await image.save();
+
+        const relations = await product.getSectionProducts();
+        const relation = relations[0]
+        relation.position = position;
+        relation.save();
 
         const categories = await product.getCategories()
         const category = categories[0]

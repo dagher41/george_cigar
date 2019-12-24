@@ -19,21 +19,21 @@ module.exports = (sequelize, DataTypes) => {
       field: 'updated_at'
     }
   }, {
-      scopes: {
-        active: {
-          where: {
-            status: STATUS_CODES.active
-          }
+    scopes: {
+      active: {
+        where: {
+          status: STATUS_CODES.active
         }
-      },
-      timestamps: true,
-      freezeTableName: true,
-      underscored: true,
-      tableName: 'products'
-    });
+      }
+    },
+    timestamps: true,
+    freezeTableName: true,
+    underscored: true,
+    tableName: 'products'
+  });
   Product.associate = function (models) {
     Product.hasMany(models.ProductImage, { as: 'productImages' });
-    Product.hasMany(models.CategorySectionProduct);
+    Product.hasMany(models.CategorySectionProduct, { as: 'sectionProducts' });
     Product.belongsToMany(models.CategorySection, { through: models.CategorySectionProduct })
     Product.hasMany(models.ProductCategory);
     Product.belongsToMany(models.Category, { through: models.ProductCategory });

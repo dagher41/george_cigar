@@ -9,6 +9,7 @@
     "bs": "npm run clean && npm run prod:client && npm run prod:server && npm run prod:start",
     "db:setup": "NODE_ENV=development sequelize db:create && sequelize db:migrate",
     "db:reset": "NODE_ENV=development sequelize db:drop && npm run db:setup",
+    "db:migrate": "NODE_ENV=production sequelize db:migrate",
     "prod:client": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
     "prod:server": "cross-env NODE_ENV=production webpack --config webpack.config.server.js",
     "prod:start": "cross-env NODE_ENV=production node index.js",

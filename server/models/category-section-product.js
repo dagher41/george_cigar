@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       field: 'category_section_id'
     },
+    position: {
+      type: DataTypes.INTEGER
+    },
     createdAt: {
       type: DataTypes.DATE(3),
       defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
@@ -18,14 +21,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE(3),
       defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
       field: 'updated_at'
-    }    
+    }
   }, {
     timestamps: true,
     freezeTableName: true,
     underscored: true,
     tableName: 'category_section_products'
-});
-  CategorySectionProduct.associate = function(models) {
+  });
+  CategorySectionProduct.associate = function (models) {
     // associations can be defined here
     CategorySectionProduct.belongsTo(models.CategorySection);
     CategorySectionProduct.belongsTo(models.Product);

@@ -1,13 +1,13 @@
 import { Router } from 'express';
 import db from '../../models';
-const { Category, ProductImage, Product, CategorySection } = db;
+const { Category, ProductImage, Product, CategorySection, CategorySectionProduct } = db;
 
 const apiRouter = new Router();
 apiRouter
     .route('/categories/:slug')
     .get(async (req, res) => {
         const category = await Category.findOne({
-            order: [['sections', 'position', 'ASC']],
+            order: [['sections', 'position', 'ASC'], ['sections', 'products', 'sectionProducts', 'position', 'ASC']],
             where: { slug: req.params.slug.trim().toLowerCase() },
             attributes: ["slug", "name"],
             include: {
@@ -23,12 +23,15 @@ apiRouter
                     through: { attributes: [] },
                     where: { status: 1 },
                     attributes: ['id', 'title', 'body'],
-                    include: {
+                    include: [{
                         model: ProductImage,
                         required: true,
                         as: 'productImages',
                         attributes: ['id', 'url', 'createdAt', 'updatedAt']
-                    }
+                    }, {
+                        model: CategorySectionProduct,
+                        as: 'sectionProducts'
+                    }]
                 }
             }
         });
@@ -48,9 +51,18 @@ adminRouter
             joinTableAttributes: [],
             include: [{
                 model: Product,
-                as: 'products'
+                as: 'products',
+                include: [{
+                    model: CategorySectionProduct,
+                    as: 'sectionProducts'
+                }, {
+                    model: ProductImage,
+                    required: true,
+                    as: 'productImages',
+                    attributes: ['id', 'url', 'createdAt', 'updatedAt']
+                }]
             }],
-            order: [['position', 'ASC']]
+            order: [['position', 'ASC'], ['products', 'sectionProducts', 'position', 'ASC']]
         });
 
         res.render('pages/category/show', { currentPage: category.name, category, sections })

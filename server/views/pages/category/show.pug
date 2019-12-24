@@ -16,7 +16,7 @@ block content
                             h3= section.title
                             .d-flex.align-items-center
                                 span.mr-2= `[Position: ${section.position}]`
-                                span.mx-2= `[Status: ${section.status}]`
+                                span.mx-2= `[Status: ${section.status == 1 ? 'Active' : 'Inactive'}]`
                                 span.ml-2
                                     | [
                                     a(href=`/admin/category_sections/${section.id}/edit`) Edit Section
