@@ -6,7 +6,7 @@ class ProductListItem extends Component {
     render() {
         const imgUrl = this.props.productImages.length && this.props.productImages[0].url;
         return (
-            <div className="col-sm-12 col-md-6">
+            <div className="col-sm-12 col-md-4">
                 <div className="position-relative pt-100 w-100" >
                     <div className="p-4 my-4 m-md-4 bg-white shadow-1 cover-element">
                         <img loading="lazy" src={imgUrl} className="" width="100%" height="100%"></img>
