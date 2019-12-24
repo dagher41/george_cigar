@@ -94,7 +94,7 @@ class ContactUsPage extends Component {
                                 <i className="lnr lnr-envelope mr-2" />Email
                             </h4>
                             <p>
-                                <a href="mailto:nabil@georgecigar.com" className="text-white">nabil@georgecigar.com</a>
+                                <a href="mailto:info@georgecigar.com" className="text-white">info@georgecigar.com</a>
                             </p>
                             <h4 className="mt-4">
                                 <i className="lnr lnr-store mr-2" />Store Hours

@@ -21,6 +21,10 @@ export default function () {
                     <i className="lnr lnr-phone-handset mr-2 text-white mt-1" />
                     <a href="tel:714-780-1195" className="text-white"> &#40;714&#41;&#32;780&#45;1195</a>
                 </div>
+                <div className="d-flex">
+                    <i className="lnr lnr-envelope mr-2 text-white mt-1" />
+                    <a href="mailto:info@georgecigar.com" className="text-white">info@georgecigar.com</a>
+                </div>
             </div>
             <div className="col-sm-12 col-md-4 my-md-0 my-4">
                 <h5 className="border-bottom mr-5">Site</h5>
