@@ -13,9 +13,8 @@ class ProductListItem extends Component {
                         <div className="bottom-overlay cover-element m-4"></div>
                         <div className="cover-element">
                             <div className="position-absolute from-bottom p-4 text-white">
-                                <div className="p-3 ">
-                                    <h3 className="font-weight-light">{this.props.title}</h3>
-                                    <p className="font-weight-light">{this.props.body}</p>
+                                <div className="p-3">
+                                    <h3 className="font-weight-light m-0">{this.props.title}</h3>
                                 </div>
                             </div>
                         </div>
