@@ -19,7 +19,7 @@ class ProductList extends Component {
                                         <div className="quote"></div>
                                         <div className="col p-4">
                                             <h3>{section.title}</h3>
-                                            <p className="font-18">
+                                            <p className="font-18 mb-0">
                                                 {section.body}
                                             </p>
                                             <p className="d-flex justify-content-end font-18">
