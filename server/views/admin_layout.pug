@@ -12,18 +12,18 @@ html
         .navbar-brand(href='#') George Cigars Admin
         #navbarCollapse.collapse.navbar-collapse
             ul.navbar-nav.mr-auto
-                li(className=`nav-item ${currentPage == 'cigars' ? 'active' : ''}`)
-                    a.nav-link(href=`/admin/categories/cigars`) Cigars
-                li(className=`nav-item ${currentPage == 'vapes' ? 'active' : ''}`)
-                    a.nav-link(href=`/admin/categories/vapes`) Vape
-                li(className=`nav-item ${currentPage == 'glass' ? 'active' : ''}`)
-                    a.nav-link(href=`/admin/categories/glass`) Glass
-                li(className=`nav-item ${currentPage == 'cbd' ? 'active' : ''}`)
-                    a.nav-link(href=`/admin/categories/cbd`) CBD/Kratom
-                li(className=`nav-item ${currentPage == 'reviews' ? 'active' : ''}`)
-                    a.nav-link(href=`/admin/reviews`) Reviews
-                li(className=`nav-item ${currentPage == 'messages' ? 'active' : ''}`)
-                    a.nav-link(href=`/admin/messages`) Messages
+                li.nav-item
+                    a(class=`nav-link${currentPage == 'cigars' ? ' active' : ''}` href=`/admin/categories/cigars`) Cigars
+                li.nav-item
+                    a(class=`nav-link${currentPage == 'vapes' ? ' active' : ''}` href=`/admin/categories/vapes`) Vape
+                li.nav-item
+                    a(class=`nav-link${currentPage == 'glass' ? ' active' : ''}` href=`/admin/categories/glass`) Glass
+                li.nav-item
+                    a(class=`nav-link${currentPage == 'cbd' ? ' active' : ''}` href=`/admin/categories/cbd`) CBD/Kratom
+                li.nav-item
+                    a(class=`nav-link${currentPage == 'reviews' ? ' active' : ''}` href=`/admin/reviews`) Reviews
+                li.nav-item
+                    a(class=`nav-link${currentPage == 'messages' ? ' active' : ''}` href=`/admin/messages`) Messages
             div
                 form.m-0(action='/admin/logout?_method=DELETE' method='post')
                     input.btn.btn-sm.btn-outline-light(type='submit' value="Logout")

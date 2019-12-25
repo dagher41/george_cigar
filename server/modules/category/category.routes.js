@@ -65,6 +65,6 @@ adminRouter
             order: [['position', 'ASC'], ['products', 'sectionProducts', 'position', 'ASC']]
         });
 
-        res.render('pages/category/show', { currentPage: category.name, category, sections })
+        res.render('pages/category/show', { currentPage: category.slug, category, sections })
     });
 export default { api: apiRouter, admin: adminRouter };
