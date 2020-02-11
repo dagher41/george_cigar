@@ -1,8 +1,0 @@
-extends ../../admin_layout.pug
-
-block content
-  h1.mt-5 New Category Section
-  p
-    a(href=`/admin/categories/${category.slug}`)= `${category.name} Page`
-    include _form
-    +form(`/admin/categories/${category.slug}/category-sections/`, 'post', {})

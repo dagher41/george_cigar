@@ -1,0 +1,9 @@
+extends ../../authenticated_layout.pug
+
+block content
+  h1.mt-5 New Product
+  h4= "Page: " + productGroup.page.name
+  p
+    a(href=`/merchant/pages/${productGroup.page.slug}`)= `${productGroup.page.name} Admin Page`
+    include _form
+    +form(`/merchant/product_groups/${productGroup.id}/products/`, 'post', {}, {})

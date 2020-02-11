@@ -1,8 +1,25 @@
-const path = require('path')
+require('dotenv').config();
+require("@babel/polyfill");
+require("@babel/register");
+const path = require('path');
 
-module.exports = {
+const defaultConfig = {
   'config': path.join('database', 'config.js'),
-  'models-path': path.join('server', 'models'),
   'migrations-path': path.join('database', 'migrations'),
+  'models-path': path.join('server', 'models'),
   'seeders-path': path.join('database', 'seeds')
-}
+};
+
+const overrides = {
+  data_migration: {
+    'config': path.join('database', 'data-migrations-config.js'),
+    'migrations-path': path.join('database', 'data-migrations')
+  },
+  dummy_data: {
+    'config': path.join('database', 'dummy-migrations-config.js'),
+    'migrations-path': path.join('database', 'dummy-data')
+  }
+};
+
+const MIGRATION_TYPE = process.env.MIGRATION_TYPE && process.env.MIGRATION_TYPE.toLowerCase();
+module.exports = Object.assign(defaultConfig, overrides[MIGRATION_TYPE] || {});

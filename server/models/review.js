@@ -8,14 +8,18 @@ module.exports = (sequelize, DataTypes) => {
     body: DataTypes.TEXT,
     source: DataTypes.STRING,
     position: DataTypes.INTEGER,
-    status: DataTypes.INTEGER
+    status: DataTypes.INTEGER,
+    catalogId: {
+      type: DataTypes.INTEGER,
+      field: 'catalog_id'
+    }
   }, {
     timestamps: true,
     freezeTableName: true,
     underscored: true,
     tableName: 'reviews'
-});
-  Review.associate = function(models) {
+  });
+  Review.associate = function (models) {
     // associations can be defined here
   };
   return Review;

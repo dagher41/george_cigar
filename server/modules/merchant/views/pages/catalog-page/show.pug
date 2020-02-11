@@ -1,0 +1,43 @@
+extends ../../authenticated_layout.pug
+
+block content
+    .row
+        .col-12
+            h1.mt-5= page.name + ' Admin Page'
+
+            .d-flex.justify-content-between.align-items-center
+                h4 Product Groups
+                a(href=`/merchant/pages/${page.slug}/product_group/new`)
+                    button.btn.btn-info.my-2 Create New Product Grouping
+            .row
+                each productGroup in page.productGroups
+                    .col-12.shadow-1.bg-white.my-4
+                        .p-4
+                            h3= productGroup.title
+                            .d-flex.align-items-center
+                                span.mr-2= `[Position: ${productGroup.position}]`
+                                span.mx-2= `[Status: ${productGroup.status == 1 ? 'Active' : 'Inactive'}]`
+                                span.ml-2
+                                    | [
+                                    a(href=`/merchant/product_groups/${productGroup.id}/edit`) Edit Grouping
+                                    | ]
+                            p= productGroup.body
+                            .d-flex.justify-content-between.align-items-center
+                                h5 Products
+                                a(href=`/merchant/product_groups/${productGroup.id}/products/new`)
+                                    button.btn.btn-sm.btn-info.m-2 Create New Product
+                            ul.nav.nav-tabs(id=`myTab-${productGroup.id}` role='tablist')
+                                li.nav-item
+                                    a.nav-link.active(id=`active-products-${productGroup.id}` data-toggle='tab' href=`#active-products-tab-${productGroup.id}` role='tab' aria-controls='home' aria-selected='true') Active
+                                li.nav-item
+                                    a.nav-link(id=`inactive-products-${productGroup.id}` data-toggle='tab' href=`#inactive-products-tab-${productGroup.id}` role='tab' aria-controls='profile' aria-selected='false') Inactive
+
+                            .tab-content(id=`myTab-${productGroup.id}Content`)
+                                .tab-pane.fade.show.active(id=`active-products-tab-${productGroup.id}` role='tabpanel' aria-labelledby='home-tab')
+                                    include _product_table
+                                    +product_table(productGroup, productGroup.products.filter(product => product.status == 1))
+                                .tab-pane.fade(id=`inactive-products-tab-${productGroup.id}` role='tabpanel' aria-labelledby='profile-tab')
+                                    +product_table(productGroup, productGroup.products.filter(product => product.status == 0))
+                else
+                    p No Sections Available
+

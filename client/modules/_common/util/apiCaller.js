@@ -6,11 +6,9 @@ export function callApi({ endpoint, method = 'get', body }) {
         method: method,
         url: `/api/${endpoint}`,
         data: body
-    })
-        .then((response) => {
-            return response;
-        })
-        .catch(
-            error => error
-        );
+    }).then((response) => {
+        return response;
+    }).catch(
+        error => error
+    );
 }

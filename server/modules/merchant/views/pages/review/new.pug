@@ -1,0 +1,8 @@
+extends ../../authenticated_layout.pug
+
+block content
+  h1.mt-5 New Review
+  p
+    a(href='/merchant/reviews') Reviews List
+    include _form
+    +form(`/merchant/reviews`, 'post', {})

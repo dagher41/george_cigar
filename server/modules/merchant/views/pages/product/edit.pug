@@ -1,0 +1,9 @@
+extends ../../authenticated_layout.pug
+
+block content
+  h1.mt-5 Edit Product
+  h4= "Page: " + productGroup.page.name
+  p
+    a(href=`/merchant/pages/${productGroup.page.slug}`)= `${productGroup.page.name} Admin List`
+    include _form
+    +form(`/merchant/product_groups/${productGroupProduct.productGroupId}/products/${product.id}/update`, 'put', product, image)

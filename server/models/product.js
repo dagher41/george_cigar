@@ -33,10 +33,10 @@ module.exports = (sequelize, DataTypes) => {
   });
   Product.associate = function (models) {
     Product.hasMany(models.ProductImage, { as: 'productImages' });
-    Product.hasMany(models.CategorySectionProduct, { as: 'sectionProducts' });
-    Product.belongsToMany(models.CategorySection, { through: models.CategorySectionProduct })
-    Product.hasMany(models.ProductCategory);
-    Product.belongsToMany(models.Category, { through: models.ProductCategory });
+    Product.hasMany(models.ProductGroupProduct, { as: 'productGroupProducts', foreignKey: 'product_id' });
+    Product.belongsToMany(models.ProductGroup, { through: models.ProductGroupProduct, as: 'productGroups', otherKey: 'product_group_id' });
+    Product.hasMany(models.PageProduct, { as: 'pageProducts' });
+    Product.belongsToMany(models.CatalogPage, { through: models.PageProduct, as: 'pages', otherKey: 'catalog_page_id' });
   };
   return Product;
 };

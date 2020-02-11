@@ -1,0 +1,23 @@
+mixin form(action, method, review)
+    form(action=action + (method == 'put' ? '?_method=PUT' : '') method='POST')
+        if method == 'put'
+            input(type="hidden" name="_method" value="PUT")
+        label.mb-0(for='author_name') Reviewer Name
+        div
+            input(id='author_name' name='author_name', type='text' value=review.authorName required=true)
+        label.pt-3.mb-0(for='review_body') Review Body
+        div
+            textarea(id='review_body' rows=10 name='body' required=true)=review.body
+        label.pt-3.mb-0(for='review_source') Review Source
+        div
+            input(id='review_source' type="text" name='source' value=review.source required=true)
+        label.pt-3.mb-0(for='review_position') Review Position
+        div
+            input(id='review_position' type="number" name='position' value=review.position required=true)
+        label.pt-3.mb-0(for='review_status') Status
+        div
+            select(id='review_status' name='status' value=review.status required=true)
+                option(value=1 selected=review.status == 1) Active
+                option(value=0 selected=review.status == 0) Inactive
+        div
+            input.btn.btn-dark.my-4(type='submit' name='Submit')
