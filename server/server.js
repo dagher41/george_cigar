@@ -74,6 +74,7 @@ app.use('/admin', [
 ]);
 
 app.get('/*', (req, res) => {
+    console.log('Hostname: ', req.hostname);
     const context = {};
     const app = ReactDOMServer.renderToString(
         <StaticRouter location={req.url} context={context}>
