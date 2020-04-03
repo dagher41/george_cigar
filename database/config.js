@@ -1,8 +1,9 @@
 const env = process.env.NODE_ENV || 'development';
 
 const config = {
-    operatorsAliases: false,
-    console_access: process.env.CONSOLE_ACCESS || false
+    console_access: process.env.CONSOLE_ACCESS || false,
+    seederStorage: "sequelize",
+    seederStorageTableName: "SequelizeSeedsMeta"
 };
 
 const envConfig = {

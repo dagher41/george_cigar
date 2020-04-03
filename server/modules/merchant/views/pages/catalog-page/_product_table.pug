@@ -1,0 +1,23 @@
+mixin product_table(productGroup, products)
+    table.table.table-striped
+        thead
+            tr
+                th(scope="col") Image
+                th(scope="col") Name
+                th(scope="col") Position
+                th(scope="col") Actions
+        tbody
+            each product in products
+                tr
+                    td
+                        if product.productImages
+                            img(src=product.productImages[0].url width='50px')
+                        else
+                            span N/A
+                    td=product.title
+                    td=product.productGroupProducts[0].position || 'N/A'
+                    td
+                        a(href=`/merchant/product_groups/${productGroup.id}/products/${product.id}/edit`) Edit
+            else
+                tr
+                    th(colspan="6") No Products Available

@@ -1,10 +1,10 @@
 var webpack = require('webpack');
 var ManifestPlugin = require('webpack-manifest-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 var cssnext = require('postcss-cssnext');
 var postcssFocus = require('postcss-focus');
 var postcssReporter = require('postcss-reporter');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     mode: 'production',
@@ -97,6 +97,7 @@ module.exports = {
         })
     ],
     optimization: {
-        minimizer: [new UglifyJsPlugin()],
-    }
+        minimize: true,
+        minimizer: [new TerserPlugin()],
+    },
 };

@@ -1,8 +1,0 @@
-extends ../../admin_layout.pug
-
-block content
-  h1.mt-5 Edit Review
-  p
-    a(href=`/admin/reviews`) Reviews List
-    include _form
-    +form(`/admin/reviews/${review.id}/update`, 'put', review)

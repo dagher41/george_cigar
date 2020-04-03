@@ -3,6 +3,10 @@ module.exports = (sequelize, DataTypes) => {
   const Message = sequelize.define('Message', {
     email: DataTypes.STRING,
     body: DataTypes.TEXT,
+    catalogId: {
+      type: DataTypes.INTEGER,
+      field: 'catalog_id'
+    },
     createdAt: {
       type: DataTypes.DATE(3),
       defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),

@@ -5,31 +5,39 @@
 
 .bg-cigars-1 {
     @extend .bg-hero;
-    background-image: url('../images/bg_cigars_1.jpg');
+    background-image: url('https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_cigars_1.jpg');
 }
-
 .bg-cigars-2 {
     @extend .bg-hero;
-    background-image: url('../images/bg_cigars_2.jpg');
+    background-image: url('https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_cigars_2.jpg');
 }
-
 .bg-vapes-1 {
     @extend .bg-hero;
-    background-image: url('../images/bg_vape_1.jpg');
+    background-image: url('https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_vape_1.jpg');
 }
-
 .bg-glass-1 {
     @extend .bg-hero;
-    background-image: url('../images/bg_glass_1.jpg');
+    background-image: url('https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_glass_1.jpg');
 }
 .bg-cbd-1 {
     @extend .bg-hero;
-    background-image: url('../images/bg_cbd_1.jpg');
+    background-image: url('https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_cbd_1.jpg');
 }
-
 .bg-contact-1 {
     @extend .bg-hero;
-    background-image: url('../images/bg_contact_1.jpg');
+    background-image: url('https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_contact_1.jpg');
+}
+.bg-weed-1 {
+    @extend .bg-hero;
+    background-image: url('https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_weed_table_1.jpg');
+}
+.bg-glass-person-1 {
+    @extend .bg-hero;
+    background-image: url('https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_glass_person_1.jpeg');
+}
+.bg-weed-jar-1 {
+    @extend .bg-hero;
+    background-image: url('https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_weed_jar_1.jpg');
 }
 
 .bg-gray-100 {
@@ -43,22 +51,22 @@
 
 .bg-cigars-tiled:not(.sm) {
     @extend .bg-tiled;
-    background-image: url("../images/bg_tile_cigar_1.jpg");
+    background-image: url("https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_tile_cigar_1.jpg");
 }
-
 .bg-cbd-tiled:not(.sm) {
     @extend .bg-tiled;
-    background-image: url("../images/bg_tile_cbd_1.jpg");
+    background-image: url("https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_tile_cbd_1.jpg");
 }
-
 .bg-vape-tiled:not(.sm) {
     @extend .bg-tiled;
-    background-image: url("../images/bg_tile_vape_1.jpg");
+    background-image: url("https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_tile_vape_1.jpg");
 }
-
 .bg-glass-tiled:not(.sm) {
     @extend .bg-tiled;
-    background-image: url("../images/bg_tile_glass_1.jpg");
+    background-image: url("https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_tile_glass_1.jpg");
+}
+.bg-weed-tiled:not(.sm) {
+    background-image: url("https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_tile_weed_1.jpg");
 }
 
 .shadow-1 {
@@ -73,6 +81,10 @@
     border-bottom: solid white 1px;
 }
 
+.no-border {
+    border: none;
+}
+
 .bottom-overlay {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(57%, rgba(255, 255, 255, 0)), to(rgba(0, 0, 0, .75)));
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 57%, rgba(0, 0, 0, 0.75) 100%);
@@ -83,13 +95,21 @@
     background-color: #393E42;
 }
 
+.bg-tan {
+    background-color: #fffcf9;
+}
+
+.shadow-inset {
+    box-shadow: inset 0px 0px 20px rgba(0,0,0,.3);
+}
+
 .quote {
     width: 100px;
     height: 70px;
     position: absolute;
     top: 10px;
     left: 10px;
-    background: url('../images/bg_quote.svg') 50% 50% no-repeat;
+    background: url('https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_quote.svg') 50% 50% no-repeat;
     background-size: cover;
 }
 
@@ -109,28 +129,31 @@ h4.bm-item {
         background: none;
     }
     .bg-cigars-tiled.sm {
-        background-image: url("../images/bg_tile_cigar_1.jpg");
+        background-image: url("https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_tile_cigar_1.jpg");
     }
-    .bg-cbd-tiled.sm{
-        background-image: url("../images/bg_tile_cbd_1.jpg");
+    .bg-cbd-tiled.sm {
+        background-image: url("https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_tile_cbd_1.jpg");
     }
     .bg-vape-tiled.sm {
-        background-image: url("../images/bg_tile_vape_1.jpg");
+        background-image: url("https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_tile_vape_1.jpg");
     }
     .bg-glass-tiled.sm {
-        background-image: url("../images/bg_tile_glass_1.jpg");
+        background-image: url("https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_tile_glass_1.jpg");
     }
     .bg-cigars-2 {
-        background-image: url('../images/bg_cigars_2_mobile.jpg');
+        background-image: url('https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_cigars_2_mobile.jpg');
     }
     .bg-glass-1 {
-        background-image: url('../images/bg_glass_1_mobile.jpg');
+        background-image: url('https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_glass_1_mobile.jpg');
     }
     .bg-cbd-1 {
-        background-image: url('../images/bg_cbd_1_mobile.jpg');
+        background-image: url('https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_cbd_1_mobile.jpg');
     }
     .bg-vapes-1 {
-        background-image: url('../images/bg_vape_1_mobile.jpg');
+        background-image: url('https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_vape_1_mobile.jpg');
+    }
+    .bg-glass-person-1 {
+        background-image: url('https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/css/bg_glass_person_1_mobile.jpeg');
     }
 
     .bottom-overlay {

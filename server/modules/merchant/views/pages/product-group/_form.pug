@@ -1,0 +1,20 @@
+mixin form(action, method, productGroup)
+    form(action=action + (method == 'put' ? '?_method=PUT' : '') method='POST')
+        if method == 'put'
+            input(type="hidden" name="_method" value="PUT" required=true)
+        label.mb-0(for='heading') Product Group Heading
+        div
+            input(id='heading' name='title', type='text' value=productGroup.title required=true)
+        label.pt-3.mb-0(for='position') Position
+        div
+            input(id='position' type="number" name='position' value=productGroup.position)
+        label.pt-3(for= 'body') Body Text
+        div
+            textarea(name="body", cols="30", rows="10" required=true id="body")=productGroup.body
+        label.pt-3.mb-0(for='status') Status
+        div
+            select(id='status' name='status' value=productGroup.status required=true)
+                option(value=1 selected=productGroup.status == 1) Active
+                option(value=0 selected=productGroup.status == 0) Inactive
+        div
+            input.btn.btn-dark.my-4(type='submit' name='Submit')
