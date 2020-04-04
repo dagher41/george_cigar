@@ -84,13 +84,13 @@ class ContactUsPage extends Component {
                                     <h4 className="mt-3">
                                         <i className="lnr lnr-map-marker mr-2" />Address
                                     </h4>
-                                    <p>
+                                    <div>
                                         <a href={address.mapsUrl} target="_blank" className="text-white">
                                             <div>{address.addressTitle}</div>
                                             <div>{address.lineOne} {address.lineTwo}</div>
                                             <div>{address.city}&#44; {address.state} {address.zip}</div>
                                         </a>
-                                    </p>
+                                    </div>
                                 </Fragment>
                                 : ""
                             }
@@ -99,9 +99,9 @@ class ContactUsPage extends Component {
                                     <h4 className="mt-4">
                                         <i className="lnr lnr-phone-handset mr-2" />Phone
                                     </h4>
-                                    <p>
+                                    <div>
                                         <a href={`tel:${telephone.value}`} className="text-white" dangerouslySetInnerHTML={{ __html: telephone.label }} />
-                                    </p>
+                                    </div>
                                 </Fragment>
                                 : ""
                             }
@@ -121,8 +121,8 @@ class ContactUsPage extends Component {
                                     <h4 className="mt-4">
                                         <i className="lnr lnr-store mr-2" />Business Hours
                                     </h4>
-                                    <p dangerouslySetInnerHTML={{ __html: businessHours.join('<br />') }}>
-                                    </p>
+                                    <div dangerouslySetInnerHTML={{ __html: businessHours.join('<br />') }}>
+                                    </div>
                                 </Fragment>
                                 : ""
                             }

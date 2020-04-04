@@ -1,6 +1,11 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
+const imageMapping = {
+    'Facebook Link': 'https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/social/facebook_logo.png',
+    'Instagram Link': 'https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/app/social/instagram_logo.png'
+};
+
 export default (props) => {
     const { address, contact: { telephone, email } } = props;
     const socialLinks = props.social && Object.values(props.social).filter(item => item.footerVisible).sort((a, b) => a.position - b.position)
@@ -56,7 +61,7 @@ export default (props) => {
                         <div>
                             {socialLinks.map(link =>
                                 <a key={link.title} className="mr-3" href={link.href} title={link.title} target="_blank">
-                                    <img loading="lazy" src={link.imageSource} alt={link.title} height="50px" />
+                                    <img loading="lazy" src={imageMapping[link.title]} alt={link.title} height="50px" />
                                 </a>
                             )}
                         </div>

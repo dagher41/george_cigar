@@ -41,19 +41,17 @@ export default {
         footerVisible: true,
         position: 10,
         href: 'https://www.facebook.com/George-Cigar-Smoke-102131994594656/',
-        title: 'Facebook Link',
-        imageSource: '/images/facebook_logo.png'
+        title: 'Facebook Link'
       },
       instagram: {
         footerVisible: true,
         position: 20,
         href: 'https://www.instagram.com/george_cigar_n_smoke/',
         title: 'Instagram Link',
-        imageSource: '/images/instagram_logo.png'
       }
     }),
-    logoSrc: '/images/georgecigar_logo_01.png',
-    faviconPrefix: 'georgecigar_anaheim'
+    logoSrc: 'https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/georgecigar/web/georgecigar_logo_01.png',
+    faviconPrefix: 'georgecigar'
   },
   catalogPages: [{
     name: 'Home',
@@ -63,7 +61,7 @@ export default {
       componentData: {
         heroClassName: 'bg-cigars-2',
         heroContent: '<h1 className="text-center text-white">Anaheim&apos;s Home for Premier Cigars, Vapes, Glass and CBD</h1>',
-        content: '<div className="container-fluid p-4"><div className="row"><div className="col-md-6 col-sm-12 p-4"><h2>Location</h2><p>Conveniently located in the center of Anaheim, minutes away from Disneyland, The Packing House and Center Promenade</p></div><div className="col-md-6 col-sm-12 p-4"><BusinessHours businessHours={businessHours}/></div></div><div className="row"><div className="col-md-6 col-sm-12 px-4 google-map"><iframe className="shadow-1 p-4" src={googleMaps.src}height="100%" width="100%" frameBorder="0" style={{border: 0}}allowFullScreen></iframe></div><div className="col-md-6 col-sm-12 px-4"><img src="/images/georgecigar-114.jpg" width="100%" className="shadow-1 p-4"></img></div></div><div className="row my-4"><div className="row no-gutters"><div className="col-sm-12 p-4"><h2>About Us</h2></div></div><div className="row no-gutters"><div className="col-md-4 col-sm-12 px-4"><img src="/images/georgecigar-9.jpg" width="100%" className="shadow-1 p-4"></img></div><div className="col-md-8 mt-4 px-4"><h5>Nabil Dagher, Owner</h5><p> I&apos;ve worked in various customer service jobs ranging from bartending to jewelry sales and repairs. I built George Cigar &amp; Smoke with the goal of helping our customers find exactly what they are looking for and being completely satisifed with their experience.</p><h5>Our Shop</h5><p> George Cigar &amp; Smoke was founded in 2012. We started out with 5 boxes of cigars and a handful of various tobacco products. Since then we have grown to be Anaheim&apos;s most trusted cigar and smoke product retailer with a full humidor, a great selection of glass, vape and CBD products and a beautiful outdoor lounge to relax and enjoy your smoke.</p></div></div></div><div className="row"><div className="col-md-12 col-sm-12 p-4 mt-4"><h2>What Our Customers Are Saying</h2><p>We&apos;ve been proudly serving Anaheim since 2012. Here&apos;s what our customers are saying about us.</p><div className="row no-gutters"><QuoteList/></div></div></div></div>'
+        content: '<div className="container-fluid p-4"><div className="row"><div className="col-md-6 col-sm-12 p-4"><h2>Location</h2><p>Conveniently located in the center of Anaheim, minutes away from Disneyland, The Packing House and Center Promenade</p></div><div className="col-md-6 col-sm-12 p-4"><BusinessHours businessHours={businessHours}/></div></div><div className="row"><div className="col-md-6 col-sm-12 px-4 google-map"><iframe className="shadow-1 p-4" src={googleMaps.src}height="100%" width="100%" frameBorder="0" style={{border: 0}}allowFullScreen></iframe></div><div className="col-md-6 col-sm-12 px-4"><img src="https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/georgecigar/web/georgecigar-114.jpg" width="100%" className="shadow-1 p-4"></img></div></div><div className="row my-4"><div className="row no-gutters"><div className="col-sm-12 p-4"><h2>About Us</h2></div></div><div className="row no-gutters"><div className="col-md-4 col-sm-12 px-4"><img src="https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/georgecigar/web/georgecigar-9.jpg" width="100%" className="shadow-1 p-4"></img></div><div className="col-md-8 mt-4 px-4"><h5>Nabil Dagher, Owner</h5><p> I&apos;ve worked in various customer service jobs ranging from bartending to jewelry sales and repairs. I built George Cigar &amp; Smoke with the goal of helping our customers find exactly what they are looking for and being completely satisifed with their experience.</p><h5>Our Shop</h5><p> George Cigar &amp; Smoke was founded in 2012. We started out with 5 boxes of cigars and a handful of various tobacco products. Since then we have grown to be Anaheim&apos;s most trusted cigar and smoke product retailer with a full humidor, a great selection of glass, vape and CBD products and a beautiful outdoor lounge to relax and enjoy your smoke.</p></div></div></div><div className="row"><div className="col-md-12 col-sm-12 p-4 mt-4"><h2>What Our Customers Are Saying</h2><p>We&apos;ve been proudly serving Anaheim since 2012. Here&apos;s what our customers are saying about us.</p><div className="row no-gutters"><QuoteList/></div></div></div></div>'
       },
     }),
     publicVisible: true,
