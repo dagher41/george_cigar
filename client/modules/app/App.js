@@ -24,10 +24,10 @@ export default class App extends Component {
                         content: 'width=device-width, initial-scale=1',
                     }]}
                 >
-                    <link rel="apple-touch-icon" sizes="180x180" href={`/images/favicons/${this.props.faviconPrefix}_apple-touch-icon.png`} />
-                    <link rel="icon" type="image/png" sizes="32x32" href={`/images/favicons/${this.props.faviconPrefix}_favicon-32x32.png`} />
-                    <link rel="icon" type="image/png" sizes="16x16" href={`/images/favicons/${this.props.faviconPrefix}_favicon-16x16.png`} />
-                    <link rel="manifest" href={`/images/favicons/${this.props.faviconPrefix}_site.webmanifest`} />
+                    <link rel="apple-touch-icon" sizes="180x180" href={`${process.env.AWS_S3_BUCKET}/${this.props.faviconPrefix}/favicons/apple-touch-icon.png`} />
+                    <link rel="icon" type="image/png" sizes="32x32" href={`${process.env.AWS_S3_BUCKET}/${this.props.faviconPrefix}/favicons/favicon-32x32.png`} />
+                    <link rel="icon" type="image/png" sizes="16x16" href={`${process.env.AWS_S3_BUCKET}/${this.props.faviconPrefix}/favicons/favicon-16x16.png`} />
+                    <link rel="manifest" href={`${process.env.AWS_S3_BUCKET}/${this.props.faviconPrefix}/favicons/site.webmanifest`} />
                 </Helmet>
                 <Header
                     pages={this.props.pages}

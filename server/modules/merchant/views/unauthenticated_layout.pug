@@ -2,8 +2,8 @@ html
   head
     title=catalog.name
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
-    link(rel="icon" type="image/png" sizes="32x32" href=`/images/favicons/${catalog.faviconPrefix}_favicon-32x32.png`)
-    link(rel="icon" type="image/png" sizes="16x16" href=`/images/favicons/${catalog.faviconPrefix}_favicon-16x16.png`)
+    link(rel="icon" type="image/png" sizes="32x32" href=`${process.env.AWS_S3_BUCKET}/${catalog.faviconPrefix}/favicons/favicon-32x32.png`)
+    link(rel="icon" type="image/png" sizes="16x16" href=`${process.env.AWS_S3_BUCKET}/${catalog.faviconPrefix}/favicons/favicon-16x16.png`)
     //- block scripts
     //-   script(src='/jquery.js')
   body.container.p-3
