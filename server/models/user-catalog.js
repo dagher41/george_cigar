@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       field: 'catalog_id'
     },
+    roleCode: {
+      type: DataTypes.INTEGER,
+      field: 'role_code'
+    }
   }, {
     timestamps: true,
     freezeTableName: true,

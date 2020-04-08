@@ -50,7 +50,7 @@ export default {
         title: 'Instagram Link',
       }
     }),
-    logoSrc: 'https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/georgecigar/web/georgecigar_logo_01.png',
+    logoSrc: 'https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/georgecigar/web/georgecigar_logo_01.webp',
     faviconPrefix: 'georgecigar'
   },
   catalogPages: [{

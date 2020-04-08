@@ -1,3 +1,5 @@
+import { Role } from '../../../models';
+
 export default async (req, _, next) => {
     if (!req.catalog) {
         return next(new Error('Undefined Store'));
@@ -9,13 +11,13 @@ export default async (req, _, next) => {
         return next();
     }
 
-    const userCatalogs = await req.user.getCatalogs({
+    const merchantCatalogs = await req.user.getUserCatalogs({
         attributes: ['id'],
-        where: { id: req.catalog.id },
-        limit: 1
+        where: { catalogId: req.catalog.id, roleCode: Role.ROLE_CODES.merchant },
+        limit: 1,
     });
-    const isMerchant = await req.user.isMerchant();
-    if (!Array.isArray(userCatalogs) || userCatalogs.length == 0 || !isMerchant) {
+
+    if (!Array.isArray(merchantCatalogs) || merchantCatalogs.length == 0) {
         return next(new Error('Unauthorized Access to Store'))
     }
 

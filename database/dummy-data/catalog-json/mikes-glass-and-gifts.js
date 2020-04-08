@@ -41,7 +41,7 @@ export default {
         title: 'Instagram Link'
       }
     }),
-    logoSrc: 'https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/georgecigar/web/mikes_glass_and_gifts_logo_01.png',
+    logoSrc: 'https://gnsolutionscatalogs.s3-us-west-1.amazonaws.com/georgecigar/web/mikes_glass_and_gifts_logo_01.webp',
     faviconPrefix: 'mikesglassandgifts'
   },
   catalogPages: [{
