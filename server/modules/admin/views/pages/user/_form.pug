@@ -1,0 +1,22 @@
+mixin form(action, user)
+    form(action=action + (user.id ? '?_method=PUT' : '') method='POST')
+        if user.id
+            input(type="hidden" name="_method" value="PUT")
+        label.mb-0(for='first_name') First Name
+        div
+            input(id='first_name' type='text' name='first_name' value=user.firstName)
+        label.pt-3.mb-0(for='last_name') Last Name
+        div
+            input(id='last_name' type="text" name='last_name' value=user.lastName)
+        label.pt-3(for= 'email') Email
+        div
+            input(type="text" name='email' id='email' value=user.email required=true)
+        if !user.id                 
+            label.pt-3(for= 'password') Password
+            div
+                input(type="password" name='password' id='password' value=null required=true)   
+            label.pt-3(for= 'password_confirmation') Password_confirmation
+            div
+                input(type="password" name='password_confirmation' id='password_confirmation' value=null required=true)                        
+        div
+            input.btn.btn-dark.my-4(type='submit' name='Submit')

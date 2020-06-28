@@ -1,0 +1,27 @@
+extends ../../../../lib/views/authenticated_layout.pug
+
+block content
+    h1.mt-5=currentCatalog.name
+    h2 Catalog Pages
+    a(href=`/admin/catalogs/${currentCatalog.id}/catalog_pages/new`)
+        button.btn.btn-info.my-3 Create New Page    
+    table.table.table-striped
+      thead
+          tr
+              th(scope="col") Position
+              th(scope="col") Name
+              th(scope="col") Slug
+              th(scope="col") Public Visible
+              th(scope="col") Actions
+      tbody
+          each catalogPage in currentCatalog.catalogPages
+              tr
+                  th(scope="row")= catalogPage.position
+                  td=catalogPage.name
+                  td=catalogPage.slug
+                  td=catalogPage.publicVisible
+                  td
+                    a(href=`/admin/catalog_pages/${catalogPage.id}/edit`) Edit 
+          else
+              tr
+                  th(colspan="5") No Messages Available

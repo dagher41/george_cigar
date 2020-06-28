@@ -1,22 +1,11 @@
-import RouteBuilder from '../route-builder';
 import ProductController from './product.controller';
 
-const router = RouteBuilder(ProductController, (router) => {
-    router
-        .route('/product_groups/:productGroupId/products/new')
-        .get(router.newPage);
+const { router, controller } = ProductController.buildResource('', []);
 
-    router
-        .route('/product_groups/:productGroupId/products')
-        .post(router.createAction);
-
-    router
-        .route('/product_groups/:productGroupId/products/:id/edit')
-        .get(router.editPage);
-
-    router
-        .route('/product_groups/:productGroupId/products/:id/update')
-        .put(router.updateAction);
-})
+router
+    .get('/product_groups/:productGroupId/products/new', controller.newPage)
+    .post('/product_groups/:productGroupId/products', controller.createAction)
+    .get('/product_groups/:productGroupId/products/:id/edit', controller.editPage)
+    .put('/product_groups/:productGroupId/products/:id/update', controller.updateAction);
 
 export default router;

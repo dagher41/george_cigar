@@ -1,10 +1,5 @@
-import RouteBuilder from '../route-builder';
 import MessageController from './message.controller';
 
-const router = RouteBuilder(MessageController, (router) => {
-    router
-        .route('/messages')
-        .get(router.indexPage);
-});
+const { router } = MessageController.buildResource('messages', ['index'])
 
 export default router;

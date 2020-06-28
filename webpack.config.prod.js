@@ -87,6 +87,7 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production'),
+                'AWS_S3_BUCKET': JSON.stringify(process.env.AWS_S3_BUCKET)
             }
         }),
         new MiniCssExtractPlugin({

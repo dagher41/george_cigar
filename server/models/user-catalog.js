@@ -12,6 +12,16 @@ module.exports = (sequelize, DataTypes) => {
     roleCode: {
       type: DataTypes.INTEGER,
       field: 'role_code'
+    },
+    createdAt: {
+      type: DataTypes.DATE(3),
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
+      field: 'created_at'
+    },
+    updatedAt: {
+      type: DataTypes.DATE(3),
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP(3)'),
+      field: 'updated_at'
     }
   }, {
     timestamps: true,
@@ -20,8 +30,8 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'user_catalogs'
   });
   UserCatalog.associate = function (models) {
-    UserCatalog.belongsTo(models.User);
-    UserCatalog.belongsTo(models.Catalog);
+    UserCatalog.belongsTo(models.User, { as: 'user', foreignKey: 'user_id' });
+    UserCatalog.belongsTo(models.Catalog, { as: 'catalog', foreignKey: 'catalog_id' });
   };
   return UserCatalog;
 };

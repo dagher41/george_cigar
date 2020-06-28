@@ -8,20 +8,6 @@ import {
 } from '../../../models';
 
 const router = new Router();
-router.route('/pages')
-    .get(async (req, res) => {
-        const pages = await CatalogPage.findAll({
-            where: { catalogId: req.catalog.id, publicVisible: true },
-            attributes: ['id', 'name', 'slug', 'position', 'templateId', 'clientMetadata']
-        })
-        res.json({
-            pages: pages.map((page) => {
-                page.clientMetadata = JSON.parse(page.clientMetadata);
-                return page;
-            })
-        });
-    });
-
 router
     .route('/pages/:slug')
     .get(async (req, res) => {

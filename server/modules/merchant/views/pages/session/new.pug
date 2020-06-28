@@ -1,7 +1,8 @@
-extends ../../unauthenticated_layout.pug
+extends ../../../../lib/views/unauthenticated_layout.pug
 
 block content
-  h1 Login
+  h1 Login 
+  h2=foo
 
   if infoMessage
     div.my-3.text-danger=infoMessage

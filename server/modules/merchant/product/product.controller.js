@@ -1,4 +1,4 @@
-import MerchantController from '../merchant-controller';
+import AdminViewController from '../../lib/admin-view-controller';
 import {
     PageProduct,
     Product,
@@ -6,18 +6,18 @@ import {
     ProductGroupProduct
 } from '../../../models';
 
-export default class ProductController extends MerchantController {
+export default class ProductController extends AdminViewController {
 
     getResourceName() {
         return 'product'
     }
 
-    async newPage(req) {
+    async newPage(req, res) {
         const productGroup = await this._getProductGroup(req.params.productGroupId);
-        return { pageParams: { productGroup }, currentPage: productGroup.page.merchantPage };
+        return super.newPage({ res, pageParams: { productGroup }, currentPage: productGroup.page.merchantPage });
     }
 
-    async createAction(req) {
+    async createAction(req, res) {
         const productGroup = await this._getProductGroup(req.params.productGroupId);
         const { title, body, url, status, position } = req.body;
         const product = await Product.create({
@@ -40,10 +40,10 @@ export default class ProductController extends MerchantController {
             }]
         });
 
-        return { pageParams: { productGroup, product }, currentPage: productGroup.page.merchantPage };
+        return super.createAction({ res, pageParams: { productGroup, product }, currentPage: productGroup.page.merchantPage });
     }
 
-    async editPage(req) {
+    async editPage(req, res) {
         const productGroup = await this._getProductGroup(req.params.productGroupId);
         const product = await this._getProduct(req.params.id);
 
@@ -52,10 +52,10 @@ export default class ProductController extends MerchantController {
 
         const productGroupProducts = product.productGroupProducts
         const productGroupProduct = productGroupProducts.find((productGroupProduct) => productGroupProduct.productGroupId == req.params.productGroupId);
-        return { pageParams: { productGroup, productGroupProduct, product, image }, currentPage: productGroup.page.merchantPage };
+        return super.editPage({ res, pageParams: { productGroup, productGroupProduct, product, image }, currentPage: productGroup.page.merchantPage });
     }
 
-    async updateAction(req) {
+    async updateAction(req, res) {
         const productGroup = await this._getProductGroup(req.params.productGroupId);
         const product = await this._getProduct(req.params.id);
         const { title, body, url, status, position } = req.body;
@@ -74,12 +74,11 @@ export default class ProductController extends MerchantController {
         productGroupProduct.position = position;
         productGroupProduct.save();
 
-        return { currentPage: productGroup.page.merchantPage }
+        return super.updateAction({ res, currentPage: productGroup.page.merchantPage });
     }
 
     async _getProduct(id) {
-        return await Product.findOne({
-            where: { id: id },
+        return await Product.findByPk(id, {
             include: [{
                 model: ProductGroupProduct,
                 as: 'productGroupProducts'

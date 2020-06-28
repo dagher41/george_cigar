@@ -1,0 +1,43 @@
+mixin form(action, currentCatalog)
+  form(action=action + (currentCatalog.id ? '?_method=PUT' : '') method='POST')
+    label.mb-0(for='name') Name
+    div
+        input(id='name' name='name', type='text' value=currentCatalog.name required=true)
+    label.pt-3.mb-0(for='host_name') Host Name
+    div
+        input(id='host_name' name='hostname' type="text" value=currentCatalog.hostname)
+    label.pt-3.mb-0(for='public_visible') Status
+    div
+        select(id='public_visible' name='status' value=currentCatalog.status required=true)
+            option(value=1 selected=currentCatalog.status == 1) Active
+            option(value=0 selected=currentCatalog.status == 0) Inactive
+    label.pt-3.mb-0(for='logo_source') Logo Source
+    div
+        input(id='logo_source' name='logoSrc' type='text' value=currentCatalog.logoSrc required=true)
+    label.pt-3.mb-0(for='favicon_prefix') Favicon Prefix
+    div
+        input(id='favicon_prefix' name='faviconPrefix' type='text' value=currentCatalog.faviconPrefix required=true)        
+    label.pt-3.mb-0(for='address_info') Address Info
+    div
+        textarea(id='address_info' name='address' class="json-field" cols="50" rows="10")=currentCatalog.address
+    label.pt-3.mb-0(for='social_info') Social Info
+    div
+        textarea(id='social_info' name='social' class="json-field" cols="50" rows="10")=currentCatalog.social
+    label.pt-3.mb-0(for='contact_info') Contact Info
+    div
+        textarea(id='contact_info' name='contact' class="json-field" cols="50" rows="10")=currentCatalog.contact
+    label.pt-3.mb-0(for='business_hours') Business Hours
+    div
+        textarea(id='business_hours' name='businessHours' class="json-field" cols="50" rows="10")=currentCatalog.businessHours                        
+    div
+        input.btn.btn-dark.my-4(type='submit' name='Submit')
+
+  script.
+    var elems = document.querySelectorAll('.json-field');
+    for(var i = 0; i < elems.length; ++i) {
+        var elem = elems[i];
+        var obj = JSON.parse(elem.value);
+        elem.value = JSON.stringify(obj, undefined, 4);
+    }
+
+    

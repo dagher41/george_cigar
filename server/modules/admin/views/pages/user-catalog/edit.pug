@@ -1,0 +1,21 @@
+extends ../../../../lib/views/authenticated_layout.pug
+
+block content
+  h3.mt-5 
+    | Edit Users for Catalog: 
+    = currentCatalog.name
+
+  .row
+    .col-6
+      h5 Current Owners
+      ul
+        each user, key in catalogMapping
+          li= user.fullName()
+
+    .col-6
+      form(action=`/admin/user_catalogs/${currentCatalog.id}/update?_method=PUT` method='POST')
+        select(name='user_ids[]' multiple)
+          each merchant in merchants
+            option(type='radio' value=merchant.id selected=catalogMapping[merchant.id])=merchant.fullName()
+        div
+          input(type='submit' value='Submit')

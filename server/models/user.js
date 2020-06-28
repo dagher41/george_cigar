@@ -56,8 +56,8 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.UserRole, { onDelete: 'CASCADE' });
     User.belongsToMany(models.Role, { through: models.UserRole, otherKey: 'role_code' });
 
-    User.hasMany(models.UserCatalog);
-    User.belongsToMany(models.Catalog, { through: models.UserCatalog });
+    User.hasMany(models.UserCatalog), { foreignKey: 'user_id' };
+    User.belongsToMany(models.Catalog, { through: models.UserCatalog, otherKey: 'catalog_id' });
   };
   return User;
 };

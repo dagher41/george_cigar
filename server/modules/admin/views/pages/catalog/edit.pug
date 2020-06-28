@@ -1,0 +1,9 @@
+extends ../../../../lib/views/authenticated_layout.pug
+
+block content
+  h1.mt-5 Edit Catalog
+  h4= "Catalog: " + currentCatalog.name
+  p
+    a(href='/admin/catalogs') Catalog List
+    include _form
+    +form(`/admin/catalogs/${currentCatalog.id}/update`, currentCatalog)

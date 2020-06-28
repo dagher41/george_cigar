@@ -1,0 +1,8 @@
+extends ../../../../lib/views/authenticated_layout.pug
+
+block content
+  h1.mt-5 Edit Merchant
+  p
+    a(href='/admin/merchants') Merchants List
+    include _form
+    +form(`/admin/merchants/${user.id}/update`, user)

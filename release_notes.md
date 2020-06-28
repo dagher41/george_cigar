@@ -1,3 +1,8 @@
+## Super Admin Web
+2020-06-25
+- npm run db:migrate # this will create the persistent_tokens table
+- USER_PASSWORD=<pass> USER_EMAIL=<email> npm run db:data # to create the super admin catalog and user
+
 ## Move Roles to User Catalogs
 2020-04-06
 Realized the the current data model that tracks roles is not equiped to handle support for allowing users
