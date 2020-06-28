@@ -32,8 +32,9 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'catalogs'
   });
   Catalog.associate = function (models) {
-    Catalog.hasMany(models.UserCatalog);
-    Catalog.belongsToMany(models.User, { through: models.UserCatalog });
+    Catalog.hasMany(models.UserCatalog, { as: 'userCatalogs', foreignKey: 'catalog_id' });
+    Catalog.hasMany(models.CatalogPage, { as: 'catalogPages' });
+    Catalog.belongsToMany(models.User, { through: models.UserCatalog, as: 'owners' });
   };
 
   Catalog.STATUS_CODES = { active: 1, inactive: 0 };

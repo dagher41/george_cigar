@@ -3,5 +3,6 @@ dist
 **/.DS_Store
 .env
 .idea
+.vscode
 
 /database/latest.dump

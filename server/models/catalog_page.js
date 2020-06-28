@@ -27,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'catalog_pages'
   });
   CatalogPage.associate = function (models) {
+    CatalogPage.belongsTo(models.Catalog, { as: 'catalog' });
     CatalogPage.hasMany(models.ProductGroup, { as: 'productGroups', foreignKey: 'catalog_page_id' });
 
     CatalogPage.hasMany(models.PageProduct, { as: 'pageProducts', foreignKey: 'catalog_page_id' });
@@ -35,7 +36,11 @@ module.exports = (sequelize, DataTypes) => {
     CatalogPage.hasOne(models.MerchantPage, { as: 'merchantPage', foreignKey: 'catalog_page_id' });
   };
 
-
+  CatalogPage.TEMPLATE_IDS = {
+    productListPage: 'ProductListPage',
+    genericHeroPage: 'GenericHeroPage',
+    contactUsPage: 'ContactUsPage'
+  }
 
   return CatalogPage;
 };

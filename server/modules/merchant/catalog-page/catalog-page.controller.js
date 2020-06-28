@@ -1,3 +1,4 @@
+import AdminViewController from '../../lib/admin-view-controller';
 import {
     CatalogPage,
     ProductGroup,
@@ -7,15 +8,14 @@ import {
     Product
 } from '../../../models';
 
-export default class CatalogPageController {
+export default class CatalogPageController extends AdminViewController {
     getResourceName() {
         return 'catalog-page';
     }
 
-    async showPage(req) {
-        const { slug, catalogId } = this._buildShowParams(req);
+    async showPage({ catalog, params: { slug }, path }, res) {
         const page = await CatalogPage.findOne({
-            where: { catalogId },
+            where: { catalogId: catalog.id },
             include: [{
                 model: MerchantPage,
                 as: 'merchantPage',
@@ -46,7 +46,7 @@ export default class CatalogPageController {
             }]
         });
 
-        return { pageParams: { page }, currentPage: page.merchantPage }
+        super.showPage({ res, pageParams: { page }, currentPage: page.merchantPage });
     }
 
     _buildShowParams(req) {

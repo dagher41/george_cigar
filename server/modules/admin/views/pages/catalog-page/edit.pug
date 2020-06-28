@@ -1,0 +1,9 @@
+extends ../../../../lib/views/authenticated_layout.pug
+
+block content
+  h1.mt-5 Edit Catalog Page
+  h4= `${catalogPage.name} page for: ${catalogPage.catalog.name}`
+  p
+    a(href=`/admin/catalogs/${catalogPage.catalogId}`) Back to Catalog Page
+    include _form
+    +form(`/admin/catalog_pages/${catalogPage.id}/update`, 'put', catalogPage, catalogPage.merchantPage)

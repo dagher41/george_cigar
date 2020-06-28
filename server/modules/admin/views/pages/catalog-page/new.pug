@@ -1,0 +1,9 @@
+extends ../../../../lib/views/authenticated_layout.pug
+
+block content
+  h1.mt-5 New Catalog Page
+  h4= `New page for: ${currentCatalog.name}`
+  p
+    a(href=`/admin/catalogs/${currentCatalog.id}`) Back to Catalog Page
+    include _form
+    +form(`/admin/catalogs/${currentCatalog.id}/catalog_pages`, 'post', catalogPage, merchantPage)

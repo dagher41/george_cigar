@@ -29,9 +29,12 @@ module.exports = (sequelize, DataTypes) => {
   MerchantPage.prototype.getMerchantPath = function () {
     switch (this.classification) {
       case MerchantPage.CLASSIFICATION_TYPES.productListPage:
-        return `pages/${this.slug}`;
+        return `/merchant/pages/${this.slug}`;
+      case MerchantPage.CLASSIFICATION_TYPES.merchantsPage:
+      case MerchantPage.CLASSIFICATION_TYPES.catalogsPage:
+        return `/admin/${this.slug}`
       default:
-        return this.slug;
+        return `/merchant/${this.slug}`;
     }
   };
 
@@ -43,7 +46,9 @@ module.exports = (sequelize, DataTypes) => {
     productListPage: 'product_list_page',
     messagesPage: 'message_page',
     reviewsPage: 'reviews_page',
-    genericPage: 'generic_page'
+    genericPage: 'generic_page',
+    merchantsPage: 'merchants_page',
+    catalogsPage: 'catalogs_page'
   }
   return MerchantPage;
 };

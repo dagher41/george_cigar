@@ -1,0 +1,52 @@
+mixin form(action, method, catalogPage, merchantPage)
+  form(action=action + (method == 'put' ? '?_method=PUT' : '') method='POST')    
+    .row
+      .col-6
+        h3 Catalog Page 
+        label.mb-0(for='name') Name
+        div
+          input(id='name' name='catalog_page[name]', type='text' value=catalogPage.name required=true)
+        label.pt-3.mb-0(for='slug') Slug
+        div
+          input(id='slug' name='catalog_page[slug]' type="text" value=catalogPage.slug)
+        label.pt-3(for= 'position') Position
+        div
+          input(id='position' type="number" name='catalog_page[position]' value=catalogPage.position)
+        label.pt-3.mb-0(for='public_visible') Public Visible
+        div
+          select(id='public_visible' name='catalog_page[publicVisible]' value=catalogPage.publicVisible required=true)
+            option(value=1 selected=catalogPage.publicVisible == 1) Yes
+            option(value=0 selected=catalogPage.publicVisible == 0) No
+        label.pt-3.mb-0(for='template_id') Template ID
+        div
+          select(id='template_id' name='catalog_page[templateId]' value=catalogPage.templateId required=true)
+            each templateIdType in tempalateTypes
+              option(value=templateIdType selected=catalogPage.templateId == templateIdType)=templateIdType
+        label.pt-3.mb-0(for='client_metadata') Client Metadata
+        div
+          textarea(id='client_metadata' name='catalog_page[clientMetadata]' cols="50" rows="10")=catalogPage.clientMetadata
+      if merchantPage    
+        .col-6
+          h3 Merchant Page
+          label.mb-0(for='name') Name
+          div
+            input(id='name' name='merchant_page[name]', type='text' value=merchantPage.name)     
+          label.pt-3.mb-0(for='slug') Slug
+          div
+            input(id='slug' name='merchant_page[slug]' type="text" value=merchantPage.slug)
+          label.pt-3(for= 'position') Position
+          div
+            input(id='position' type="number" name='merchant_page[position]' value=merchantPage.position)
+          label.pt-3.mb-0(for='template_id') Classification
+          div
+            select(id='template_id' name='merchant_page[classification]' value=merchantPage.templateId)
+              each classificationType in classificationTypes
+                option(value=classificationType selected=merchantPage.classification == classificationType)=classificationType                     
+    div.row
+        input.btn.btn-dark.my-4(type='submit' name='Submit')
+
+  script.
+    var elem = document.querySelector('#client_metadata');
+    var obj = JSON.parse(elem.value);
+    elem.value = JSON.stringify(obj, undefined, 4);
+    

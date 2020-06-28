@@ -1,0 +1,33 @@
+extends ../../../../lib/views/authenticated_layout.pug
+
+block content
+    h1.mt-5 Catalogs
+    a(href='/admin/catalogs/new') 
+        button.btn.btn-info.my-4 Create Catalog
+    table.table.table-striped
+        thead
+            tr
+                th(scope="col") ID
+                th(scope="col") Name
+                th(scope="col") Hostname
+                th(scope="col") Created At
+                th(scope="col") Actions
+        tbody
+            each catalog in catalogs
+                tr
+                    th(scope="row")= catalog.id
+                    td=catalog.name
+                    td
+                      a(href=`https://www.${catalog.hostname}` target="_blank")=catalog.hostname
+                    td=catalog.createdAt.toDateString()
+                    td
+                      | [ 
+                      a(href=`/admin/catalogs/${catalog.id}`) Pages 
+                      | | 
+                      a(href=`/admin/catalogs/${catalog.id}/edit`) Edit 
+                      | | 
+                      a(href=`/admin/user_catalogs/${catalog.id}/edit`) Users
+                      |  ]
+            else
+                tr
+                    th(colspan="5") No Catalogs Available

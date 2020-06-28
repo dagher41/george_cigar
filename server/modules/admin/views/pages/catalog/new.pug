@@ -1,0 +1,8 @@
+extends ../../../../lib/views/authenticated_layout.pug
+
+block content
+  h1.mt-5 New Catalog
+  p
+    a(href='/admin/catalogs') Catalog List
+    include _form
+    +form(`/admin/catalogs`, {})

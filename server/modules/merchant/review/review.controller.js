@@ -1,39 +1,39 @@
-import MerchantController from '../merchant-controller';
+import AdminViewController from '../../lib/admin-view-controller';
 import { Review } from '../../../models';
 
-export default class ReviewController extends MerchantController {
+export default class ReviewController extends AdminViewController {
     getResourceName() {
         return 'review'
     }
 
-    async indexPage(req) {
+    async indexPage(req, res) {
         const page = await this._getMerchantPage(req.catalog.id, 'reviews');
         const reviews = await Review.findAll({
             where: { catalogId: req.catalog.id },
             order: [['status', 'DESC'], ['position', 'ASC']]
         });
-        return { pageParams: { reviews }, currentPage: page };
+        return super.indexPage({ res, pageParams: { reviews }, currentPage: page });
     }
 
-    async newPage(req) {
+    async newPage(req, res) {
         const page = await this._getMerchantPage(req.catalog.id, 'reviews');
-        return { pageParams: {}, currentPage: page }
+        return super.newPage({ res, pageParams: {}, currentPage: page });
     }
 
-    async createAction(req) {
+    async createAction(req, res) {
         const { author_name: authorName, body, source, position, status } = req.body;
         const review = await Review.create({ authorName, body, source, position, status, catalogId: req.catalog.id });
         const page = await this._getMerchantPage(req.catalog.id, 'reviews');
-        return { review, currentPage: page };
+        return super.createAction({ res, currentPage: page });
     }
 
-    async editPage(req) {
+    async editPage(req, res) {
         const review = await Review.findOne({ where: { id: req.params.id } });
         const page = await this._getMerchantPage(req.catalog.id, 'reviews');
-        return { pageParams: { review }, currentPage: page }
+        return super.editPage({ res, pageParams: { review }, currentPage: page });
     }
 
-    async updateAction(req) {
+    async updateAction(req, res) {
         const { author_name: authorName, body, source, position, status } = req.body;
         const review = await Review.findOne({ where: { id: req.params.id } });
         review.authorName = authorName;
@@ -43,6 +43,6 @@ export default class ReviewController extends MerchantController {
         review.status = status;
         await review.save();
         const page = await this._getMerchantPage(req.catalog.id, 'reviews');
-        return { review, currentPage: page };
+        return super.updateAction({ res, review, currentPage: page });
     }
 }

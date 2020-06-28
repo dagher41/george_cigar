@@ -1,17 +1,16 @@
-extends ../../admin_layout.pug
+extends ../../../../lib/views/authenticated_layout.pug
 
 block content
     h1.mt-5 Merchant's Page
 
-    a(href='/admin/users/new')
-        button.btn.btn-info.my-3 Create New User
+    a(href='/admin/merchants/new')
+        button.btn.btn-info.my-3 Create New Merchant
     table.table.table-striped
         thead
             tr
                 th(scope="col") ID
                 th(scope="col") Name
                 th(scope="col") Email
-                th(scope="col") Status
                 th(scope="col") Actions
         tbody
             each user in users
@@ -19,9 +18,8 @@ block content
                     th(scope="row")= user.id
                     td=user.fullName()
                     td=user.email
-                    td=user.status == 1 ? 'Active' : 'Inactive'
                     td
-                        a(href=`/admin/users/${user.id}/edit`) Edit
+                        a(href=`/admin/merchants/${user.id}/edit`) Edit
             else
                 tr
-                    th(colspan="5") No Users Available
+                    th(colspan="5") No Merchants Available

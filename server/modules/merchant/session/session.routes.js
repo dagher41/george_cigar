@@ -24,9 +24,7 @@ router
             }
             return req.logIn(user, async function (err) {
                 if (err) { return next(err); }
-                if (await req.user.isAdmin()) {
-                    return res.redirect('/admin/merchants');
-                }
+
                 const page = await MerchantPage.findOne({
                     order: [['position', 'ASC']],
                     limit: 1,
@@ -36,7 +34,7 @@ router
                         where: { catalogId: req.catalog.id },
                     }
                 })
-                return res.redirect(`/merchant/${page.getMerchantPath()}`);
+                return res.redirect(page.getMerchantPath());
             });
         })(req, res, next);
     });

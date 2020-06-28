@@ -1,6 +1,6 @@
 import { Catalog } from '../../../models';
 
-export default async (req, _, next) => {
+export default async (req, res, next) => {
     const hostname = req.hostname.replace('www.', '');
     const { debugHostname } = req.query;
     if (debugHostname === 'true') {
@@ -12,6 +12,7 @@ export default async (req, _, next) => {
     });
     if (catalog) {
         req.catalog = catalog;
+        res.locals.catalog = catalog;
         return next();
     }
 
