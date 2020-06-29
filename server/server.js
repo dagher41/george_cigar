@@ -20,6 +20,14 @@ app.use(compression());
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
 app.use(Express.static(path.resolve(__dirname, '../public')));
 
+app.use((req, res, next) => {
+    // The 'x-forwarded-proto' check is for Heroku
+    if (!req.secure && req.get('x-forwarded-proto') !== 'https' && process.env.NODE_ENV !== "development") {
+        return res.redirect('https://' + req.get('host') + req.url);
+    }
+    next();
+});
+
 app.use(flash());
 app.use(session({
     secret: process.env.SECRET_KEY_BASE || 'keyboard cat',

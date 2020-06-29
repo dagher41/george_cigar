@@ -6,13 +6,25 @@ import passport from 'passport';
 const router = new Router();
 router
     .route('/login')
-    .get((req, res) => {
+    .get(async (req, res) => {
+        if (req.isAuthenticated()) {
+            const redirectPage = await MerchantPage.findOne({
+                order: [['position', 'ASC']],
+                limit: 1,
+                include: {
+                    model: CatalogPage,
+                    as: 'catalogPage',
+                    where: { catalogId: req.catalog.id },
+                }
+            })
+            return res.redirect(redirectPage.getMerchantPath());
+        }
         res.render('pages/session/new', { catalog: req.catalog, infoMessage: req.flash('info') })
     });
 
 router
     .route('/login')
-    .post(function (req, res, next) {
+    .post((req, res, next) => {
         return passport.authenticate('local', function (err, user, info) {
             if (err) {
                 req.flash('info', err)
