@@ -35,7 +35,7 @@ passport.serializeUser(function (user, cb) {
 });
 
 passport.deserializeUser((id, cb) => {
-  User.findOne({ where: { id } }).then(user => {
+  User.findByPk(id).then(user => {
     cb(null, user);
   });
 });

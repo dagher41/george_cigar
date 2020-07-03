@@ -8,13 +8,16 @@ export default class ProductGroupController extends AdminViewController {
         return 'product-group';
     }
 
-    async newPage({ catalog, params: { slug } }, res) {
+    async newPage({ catalog: { id: catalogId }, params: { slug } }, res) {
         const page = await CatalogPage.findOne({
-            where: { slug: slug && slug.trim().toLowerCase(), catalogId: catalog.id },
+            where: { catalogId },
             include: {
                 model: MerchantPage,
                 as: 'merchantPage',
                 required: true,
+                where: {
+                    slug: slug && slug.trim().toLowerCase()
+                }
             }
         });
         return super.newPage({ res, pageParams: { page }, currentPage: page.merchantPage });
@@ -22,11 +25,14 @@ export default class ProductGroupController extends AdminViewController {
 
     async createAction({ catalog, params: { slug }, body: { title, body, position, status, sub_heading: subHeading } }, res) {
         const page = await CatalogPage.findOne({
-            where: { slug: slug && slug.trim().toLowerCase(), catalogId: catalog.id },
+            where: { catalogId: catalog.id },
             include: {
                 model: MerchantPage,
                 as: 'merchantPage',
                 required: true,
+                where: {
+                    slug: slug && slug.trim().toLowerCase()
+                }
             }
         });
         await page.createProductGroup({
@@ -39,13 +45,13 @@ export default class ProductGroupController extends AdminViewController {
         return super.createAction({ res, currentPage: page.merchantPage });
     }
 
-    async editPage({ params: { id } }, res) {
-        const productGroup = await this._getProductGroup(id);
+    async editPage({ catalog: { id: catalogId }, params: { id } }, res) {
+        const productGroup = await this._getProductGroup(id, catalogId);
         return super.editPage({ res, pageParams: { productGroup }, currentPage: productGroup.page.merchantPage });
     }
 
-    async updateAction({ params: { id }, body: { title, sub_heading: subHeading, body, position, status } }, res) {
-        const productGroup = await this._getProductGroup(id);
+    async updateAction({ catalog: { id: catalogId }, params: { id }, body: { title, sub_heading: subHeading, body, position, status } }, res) {
+        const productGroup = await this._getProductGroup(id, catalogId);
         productGroup.title = title;
         productGroup.subHeading = subHeading
         productGroup.body = body;

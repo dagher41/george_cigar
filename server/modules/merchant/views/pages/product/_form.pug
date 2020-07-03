@@ -7,7 +7,7 @@ mixin form(action, method, product, image)
             input(id='product_name' name='title', type='text' value=product.title)
         label.pt-3.mb-0(for='product_position') Position
         div
-            input(id='product_position' type="text" name='position' value=product.productGroupProducts && product.productGroupProducts[0].position)
+            input(id='product_position' type="number" name='position' value=product.productGroupProducts && product.productGroupProducts[0].position)
         label.pt-3(for= 'image_url') Image URL
         div
             input(type="next" name='url' id='url' value=image.url required=true)

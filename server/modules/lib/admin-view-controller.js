@@ -82,16 +82,16 @@ export default class AdminViewController {
     res.render(template, Object.assign(pageParams, { navItems, currentNav }));
   }
 
-  async _getProductGroup(id) {
-    return await ProductGroup.findOne({
-      where: { id },
+  async _getProductGroup(id, catalogId) {
+    return await ProductGroup.findByPk(id, {
       include: {
         model: CatalogPage,
         as: 'page',
         include: {
           model: MerchantPage,
           as: 'merchantPage'
-        }
+        },
+        where: { catalogId }
       }
     });
   }

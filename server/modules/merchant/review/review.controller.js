@@ -28,14 +28,14 @@ export default class ReviewController extends AdminViewController {
     }
 
     async editPage(req, res) {
-        const review = await Review.findOne({ where: { id: req.params.id } });
+        const review = await Review.findByPk(req.params.id);
         const page = await this._getMerchantPage(req.catalog.id, 'reviews');
         return super.editPage({ res, pageParams: { review }, currentPage: page });
     }
 
     async updateAction(req, res) {
         const { author_name: authorName, body, source, position, status } = req.body;
-        const review = await Review.findOne({ where: { id: req.params.id } });
+        const review = await Review.findByPk(req.params.id);
         review.authorName = authorName;
         review.body = body;
         review.source = source;
