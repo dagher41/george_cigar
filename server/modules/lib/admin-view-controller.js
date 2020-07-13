@@ -28,6 +28,15 @@ export default class AdminViewController {
     const controller = new this();
     const routerValues = _pick(DEFAULT_ROUTES, routes);
 
+    const parentScope = options && options.scopedRoutes;
+    if (parentScope) {
+      const { scope: { parentResource, parentIdentifier, routes: childRoutes } } = parentScope;
+      const scopedRoutes = _pick(DEFAULT_ROUTES, childRoutes);
+      for (let [_, value] of Object.entries(scopedRoutes)) {
+        router[value.method](`/${parentResource}/:${parentIdentifier}/${resourceName}${value.route}`, controller[value.action]);
+      }
+    }
+
     for (let [_, value] of Object.entries(routerValues)) {
       const identifier = options && options.resourceIdentifier;
 

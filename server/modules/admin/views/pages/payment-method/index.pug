@@ -1,0 +1,40 @@
+extends ../../../../lib/views/authenticated_layout.pug
+
+block content
+  h1.mt-5 Merchant Payment Methods
+  a(href=`/admin/merchants/${userId}/payment_methods/new`)
+    button.btn.btn-info.my-3 Create New Payment Method
+
+  h5 Payment Profile
+  if paymentProfile
+    table.table.table-striped
+      thead
+        tr
+          th(scope="col") External ID
+          th(scope="col") Created At
+      tbody
+        tr
+          td=paymentProfile.externalId
+          td=paymentProfile.createdAt.toDateString()
+    h5.mt-5 Payment Methods
+    table.table.table-striped
+      thead
+        tr
+          th(scope="col") External ID 
+          th(scope="col") Brand
+          th(scope="col") Last Four
+          th(scope="col") Expiration
+          th(scope="col") Created At
+      tbody
+        each paymentMethod in paymentProfile.paymentMethods
+          tr
+            td=paymentMethod.externalId
+            td=paymentMethod.brand
+            td=paymentMethod.lastFour
+            td=`${paymentMethod.expMonth}-${paymentMethod.expYear}`
+            td=paymentMethod.createdAt.toDateString()
+        else
+          h6 No payment methods available          
+  else
+    h6 No Payment Profile Present
+        

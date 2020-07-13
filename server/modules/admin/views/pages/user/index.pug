@@ -20,6 +20,8 @@ block content
                     td=user.email
                     td
                         a(href=`/admin/merchants/${user.id}/edit`) Edit
+                        |  | 
+                        a(href=`/admin/merchants/${user.id}/payment_methods`) Payment Methods
             else
                 tr
                     th(colspan="5") No Merchants Available
