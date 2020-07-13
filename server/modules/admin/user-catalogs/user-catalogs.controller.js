@@ -51,7 +51,7 @@ export default class UserCatalogController extends AdminViewController {
     const currentCatalog = await Catalog.findByPk(catalogId, {
       attributes: ['id'],
     });
-    const users = await User.findAll({ where: { id: userIds }, attributes: ['id'] });
+    const users = await User.findAll({ where: { id: userIds || [] }, attributes: ['id'] });
     await UserCatalog.destroy({ where: { catalogId: currentCatalog.id } });
     await UserCatalog.bulkCreate(users.map(user => Object.create({ user_id: user.id, catalog_id: currentCatalog.id, roleCode: Role.ROLE_CODES.merchant })));
     const page = await this._getMerchantPage(catalog.id, 'catalogs');
