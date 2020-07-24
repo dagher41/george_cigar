@@ -1,0 +1,59 @@
+extends ../../../../lib/views/authenticated_layout.pug
+
+block header
+  link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/timepicker/jquery.timepicker.min.css")
+  script(src="https://cdn.jsdelivr.net/npm/timepicker/jquery.timepicker.min.js")
+  script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+
+block content
+  .row.mt-5.no-gutters
+    h4= catalogVM.name
+  .row.mt-3.no-gutters
+    .col-12
+      h5 Business Hours
+      each day in Object.entries(DAY_MAPPING).sort(entry => entry[1]).map( entry => ({dayOfWeekNum: entry[0], dayOfWeekText: entry[1], businessHour: hourMap[entry[0]]}))
+        - var isClosed = (day.businessHour && day.businessHour.openTime == null && day.businessHour.closeTime == null);
+        div.mt-2(class=`entry-${day.dayOfWeekNum}`)
+          label.m-0=day.dayOfWeekText
+          br
+          input.closed-box(type="checkbox" name="is_closed" id=`is_closed_${day.dayOfWeekNum}` data-day-of-week=day.dayOfWeekNum checked=isClosed) 
+          label.m-0.ml-1(for=`is_closed_${day.dayOfWeekNum}`) Closed
+          br
+          div.hours-input(class=`${isClosed ? 'd-none' : ''}`)
+            input(type="text" name='open_time' value=(day.businessHour && day.businessHour.openTime) data-day-of-week=day.dayOfWeekNum class="time-input time ui-timepicker-input" onkeydown="return false")
+            |  - 
+            input(type="text" name='close_time' value=(day.businessHour && day.businessHour.closeTime) data-day-of-week=day.dayOfWeekNum class="time-input time ui-timepicker-input" onkeydown="return false")
+block footer
+  script.
+
+    function processChangeEvent() {
+      processRequest($(this).data('day-of-week'));
+    }
+
+    function processRequest(dayOfWeek) {
+      const elemGroup = $(`.entry-${dayOfWeek}`);
+      const isClosedChecked = elemGroup.find('input[name="is_closed"]').is(':checked');
+      const eOpenTime = elemGroup.find('input[name="open_time"]');
+      const eCloseTime = elemGroup.find('input[name="close_time"]');
+      
+      if (isClosedChecked) {
+        eOpenTime.val(null);
+        eCloseTime.val(null);
+        elemGroup.find('.hours-input').addClass('d-none');
+      } else {
+        elemGroup.find('.hours-input').removeClass('d-none');
+      }
+      const requestData = {
+        business_hour: {
+          day_of_week: dayOfWeek,
+          is_closed: isClosedChecked,
+          open_time: eOpenTime.val(),
+          close_time: eCloseTime.val(),
+        }
+      };
+      
+      axios.post('/merchant/business_hours/upsert?_method=PUT', requestData);
+    }
+
+    $('.time-input').timepicker({ 'scrollDefault': 'now', 'step': 15 }).on('changeTime', processChangeEvent);
+    $('.closed-box').on('change', processChangeEvent);

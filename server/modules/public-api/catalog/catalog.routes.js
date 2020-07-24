@@ -6,7 +6,7 @@ import Helmet from 'react-helmet';
 
 import Root from '../../../../client/Root';
 import configureStore from '../../../../client/store';
-import { CatalogPage } from '../../../models';
+import { CatalogPage, BusinessHour } from '../../../models';
 
 const router = new Router();
 router
@@ -18,7 +18,13 @@ router
       attributes: ['id', 'name', 'slug', 'position', 'templateId', 'clientMetadata'],
       order: [['position', 'ASC']]
     });
-    const { id, name, address, social, contact, businessHours, logoSrc, faviconPrefix } = req.catalog;
+    const { id, name, address, social, contact, logoSrc, faviconPrefix } = req.catalog;
+    const businessHours = await BusinessHour.findAll({
+      where: { catalogId: req.catalog.id },
+      attributes: ['dayOfWeek', 'openTime', 'closeTime'],
+      order: [['dayOfWeek', 'ASC']]
+    });
+    const DAY_MAPPING = BusinessHour.getDayMapping();
     const store = {
       catalogData: {
         id,
@@ -28,7 +34,7 @@ router
         address: JSON.parse(address),
         social: JSON.parse(social),
         contact: JSON.parse(contact),
-        businessHours: JSON.parse(businessHours),
+        businessHours: businessHours.map(item => ({ numDayOfWeek: item.dayOfWeek, dayOfWeek: DAY_MAPPING[item.dayOfWeek], openTime: item.openTime, closeTime: item.closeTime })),
         pages: pages.map(page => {
           page.clientMetadata = JSON.parse(page.clientMetadata);
           return page;
