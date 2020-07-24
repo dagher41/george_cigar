@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from "react-redux";
 import { emailChanged, messageChanged, postMessage } from './redux/contact-us.actions';
+import BusinessHours from '../_common/components/BusinessHours';
 
 class ContactUsPage extends Component {
     constructor(props) {
@@ -39,7 +40,7 @@ class ContactUsPage extends Component {
                             <div>
                                 <h3>We are here for you</h3>
                                 <h4>Let us know what products you would like us to carry, your thoughts about our store or just general feedback.</h4>
-                                <hr className="bg-white seperator" />
+                                <hr className="bg-white separator" />
                             </div>
                             <form onSubmit={(e) => this.onFormSubmit(e)}>
                                 <div className="row no-gutters">
@@ -121,8 +122,7 @@ class ContactUsPage extends Component {
                                     <h4 className="mt-4">
                                         <i className="lnr lnr-store mr-2" />Business Hours
                                     </h4>
-                                    <div dangerouslySetInnerHTML={{ __html: businessHours.join('<br />') }}>
-                                    </div>
+                                    <BusinessHours businessHours={businessHours} />
                                 </Fragment>
                                 : ""
                             }

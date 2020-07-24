@@ -51,27 +51,34 @@ export default class AdminViewController {
   }
 
   async indexPage({ res, pageParams, currentPage, templateName }) {
-    this._renderPage({ res, pageParams, currentPage, templateName: templateName || 'index' })
+    return this._renderPage({ res, pageParams, currentPage, templateName: templateName || 'index' })
   }
 
   async newPage({ res, pageParams, currentPage, templateName }) {
-    this._renderPage({ res, pageParams, currentPage, templateName: templateName || 'new' });
+    return this._renderPage({ res, pageParams, currentPage, templateName: templateName || 'new' });
   }
 
-  async createAction({ res, redirectPath, currentPage }) {
-    res.redirect(redirectPath || currentPage.getMerchantPath());
+  async createAction({ res, redirectPath, currentPage, json }) {
+    if (json) {
+      return res.json(json)
+    }
+    return res.redirect(redirectPath || currentPage.getMerchantPath());
   }
 
   async showPage({ res, pageParams, currentPage, templateName }) {
-    this._renderPage({ res, pageParams, currentPage, templateName: templateName || 'show' });
+    return this._renderPage({ res, pageParams, currentPage, templateName: templateName || 'show' });
   }
 
   async editPage({ res, pageParams, currentPage, templateName }) {
-    this._renderPage({ res, pageParams, currentPage, templateName: templateName || 'edit' });
+    return this._renderPage({ res, pageParams, currentPage, templateName: templateName || 'edit' });
   }
 
-  async updateAction({ res, redirectPath, currentPage }) {
-    res.redirect(redirectPath || currentPage.getMerchantPath());
+  async updateAction({ res, redirectPath, currentPage, json }) {
+    if (json) {
+      return res.json(json)
+    }
+
+    return res.redirect(redirectPath || currentPage.getMerchantPath());
   }
 
   async _renderPage({ res, templateName, pageParams, currentPage }) {

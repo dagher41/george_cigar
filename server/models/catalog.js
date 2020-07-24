@@ -1,4 +1,5 @@
-'use strict';
+import _get from 'lodash/get';
+
 module.exports = (sequelize, DataTypes) => {
   const Catalog = sequelize.define('Catalog', {
     name: DataTypes.STRING,
@@ -12,10 +13,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     contact: {
       type: DataTypes.JSONB
-    },
-    businessHours: {
-      type: DataTypes.JSONB,
-      field: 'business_hours'
     },
     logoSrc: {
       type: DataTypes.STRING,
@@ -34,8 +31,13 @@ module.exports = (sequelize, DataTypes) => {
   Catalog.associate = function (models) {
     Catalog.hasMany(models.UserCatalog, { as: 'userCatalogs', foreignKey: 'catalog_id' });
     Catalog.hasMany(models.CatalogPage, { as: 'catalogPages' });
+    Catalog.hasMany(models.BusinessHour, { as: 'businessHours' });
     Catalog.belongsToMany(models.User, { through: models.UserCatalog, as: 'owners' });
   };
+
+  Catalog.prototype.getTelephoneNumber = function () {
+    return _get(JSON.parse(this.contact), 'telephone.value', null)
+  }
 
   Catalog.STATUS_CODES = { active: 1, inactive: 0 };
   return Catalog;

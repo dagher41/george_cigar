@@ -8,7 +8,7 @@ export default async (req, res, next) => {
     }
     const catalog = await Catalog.findOne({
         where: { hostname },
-        attributes: ['id', 'name', 'address', 'social', 'contact', 'businessHours', 'logoSrc', 'faviconPrefix']
+        attributes: ['id', 'name', 'address', 'social', 'contact', 'logoSrc', 'faviconPrefix']
     });
     if (catalog) {
         req.catalog = catalog;
