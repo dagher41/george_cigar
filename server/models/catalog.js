@@ -1,4 +1,4 @@
-import _get from 'lodash/get';
+const _get = require('lodash/get');
 
 module.exports = (sequelize, DataTypes) => {
   const Catalog = sequelize.define('Catalog', {
