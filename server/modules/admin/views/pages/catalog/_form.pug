@@ -26,11 +26,6 @@ mixin form(action, currentCatalog)
     label.pt-3.mb-0(for='contact_info') Contact Info
     div
         textarea(id='contact_info' name='contact' class="json-field" cols="50" rows="10")=currentCatalog.contact
-    label.pt-3.mb-0(for='business_hours') Business Hours
-    div
-        textarea(id='business_hours' name='businessHours' class="json-field" cols="50" rows="10")=currentCatalog.businessHours                        
-    div
-        input.btn.btn-dark.my-4(type='submit' name='Submit')
 
   script.
     var elems = document.querySelectorAll('.json-field');

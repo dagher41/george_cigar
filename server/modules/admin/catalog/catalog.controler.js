@@ -64,7 +64,7 @@ export default class CatalogController extends AdminViewController {
     super.updateAction({ res, currentPage: page });
   }
 
-  _setCommonVariables(catalog, { name, hostname, status, logoSrc, faviconPrefix, address, social, contact, businessHours }) {
+  _setCommonVariables(catalog, { name, hostname, status, logoSrc, faviconPrefix, address, social, contact }) {
     catalog.name = name;
     catalog.hostname = hostname;
     catalog.status = status;
@@ -73,6 +73,5 @@ export default class CatalogController extends AdminViewController {
     catalog.address = address;
     catalog.social = social;
     catalog.contact = contact;
-    catalog.businessHours = businessHours;
   }
 }
