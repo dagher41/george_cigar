@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines" : { "node" : "=8.11.4" },
   "scripts": {
     "clean": "rimraf dist",
     "console": "CONSOLE_ACCESS=true babel-node --presets @babel/preset-env",
