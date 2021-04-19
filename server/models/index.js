@@ -7,6 +7,7 @@ const db = {};
 
 let sequelize;
 if (config.use_env_variable) {
+  console.log('trying to connect to db')
   sequelize = new Sequelize(process.env[config.use_env_variable], {        
     dialectOptions: {
       ssl: {
@@ -14,6 +15,7 @@ if (config.use_env_variable) {
       }
     }
   });
+  console.log('connected to db')
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
