@@ -7,7 +7,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "console": "CONSOLE_ACCESS=true babel-node --presets @babel/preset-env",
-    "bs": "npm run clean & npm run prod:client & npm run prod:server && npm run prod:start",
+    "bs": "npm run clean && npm run prod:client && npm run prod:server && npm run prod:start",
     "db:seed": "sequelize db:seed:all",
     "db:setup": "NODE_ENV=development sequelize db:create && sequelize db:migrate && npm run db:seed",
     "db:reset": "NODE_ENV=development sequelize db:drop && npm run db:setup",
