@@ -12,7 +12,6 @@ const router = new Router();
 router
   .route('/*')
   .get(async (req, res) => {
-    console.log('at the home page')
     const context = {};
     const pages = await CatalogPage.findAll({
       where: { catalogId: req.catalog.id, publicVisible: true },
@@ -50,7 +49,6 @@ router
     const isDevMode = process.env.NODE_ENV === 'development';
     const assetsManifest = process.env.webpackAssets && JSON.parse(process.env.webpackAssets);
     const head = Helmet.rewind();
-    console.log('sending the home page')
     res.send(
       `<html>
           <head>
